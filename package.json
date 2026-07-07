@@ -1,0 +1,62 @@
+{
+  "name": "@platformatic/eve",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "https://github.com/platformatic/eve",
+  "author": "Platformatic Inc. <oss@platformatic.dev> (https://platformatic.dev)",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platformatic/eve.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/platformatic/eve/issues"
+  },
+  "private": false,
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.base.json",
+    "postbuild": "node scripts/postbuild.ts",
+    "lint": "eslint --cache",
+    "typecheck": "tsc -p . --noEmit",
+    "format": "prettier -w src test",
+    "test": "npm run build && c8 -c test/config/c8-local.json node  --test --test-reporter=cleaner-spec-reporter --test-concurrency=1 --test-timeout=60000 'test/**/*.test.ts'",
+    "test:ci": "npm run build && c8 -c test/config/c8-ci.json node  --test --test-reporter=cleaner-spec-reporter --test-concurrency=1 --test-timeout=60000 'test/**/*.test.ts'",
+    "ci": "npm run build && npm run typecheck && npm run lint && npm run test:ci",
+    "prepublishOnly": "npm run build && npm run lint",
+    "postpublish": "git push origin && git push origin -f --tags"
+  },
+  "dependencies": {
+    "@platformatic/basic": "^3.60.0",
+    "@platformatic/foundation": "^3.60.0",
+    "ajv": "^8.20.0",
+    "light-my-request": "^6.6.0",
+    "semver": "^7.7.4"
+  },
+  "devDependencies": {
+    "@platformatic/tsconfig": "^0.2.0",
+    "@types/node": "^25.2.3",
+    "@types/semver": "^7.7.1",
+    "c8": "^10.1.3",
+    "cleaner-spec-reporter": "^1.0.3",
+    "eslint": "^9.39.0",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eve": "0.20.0",
+    "neostandard": "^0.12.2",
+    "prettier": "^3.8.1",
+    "prettier-plugin-space-before-function-paren": "^0.0.10",
+    "typescript": "^5.9.3",
+    "undici": "^8.7.0"
+  },
+  "engines": {
+    "node": ">= 22.19.0"
+  }
+}

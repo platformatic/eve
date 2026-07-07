@@ -1,0 +1,11 @@
+allowBuilds:
+  protobufjs: set this to true or false
+  unrs-resolver: true
+minimumReleaseAgeExclude:
+  - eve@0.20.0
+  - '@platformatic/basic@3.60.0'
+  - '@platformatic/foundation@3.60.0'
+  - '@platformatic/globals@3.60.0'
+  - '@platformatic/itc@3.60.0'
+  - '@platformatic/metrics@3.60.0'
+  - '@platformatic/telemetry@3.60.0'

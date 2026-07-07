@@ -1,0 +1,25 @@
+{
+  "name": "@platformatic/eve",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "https://github.com/platformatic/eve",
+  "author": "Platformatic Inc. <oss@platformatic.dev> (https://platformatic.dev)",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platformatic/eve.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/platformatic/eve/issues"
+  },
+  "private": false,
+  "files": ["dist", "LICENSE", "README.md"],
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 22.19.0"
+  }
+}
