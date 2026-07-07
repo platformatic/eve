@@ -1,6 +1,6 @@
 # @platformatic/eve
 
-Platformatic capability for running [Eve](https://github.com/eve-dev/eve) applications inside a Platformatic runtime.
+Platformatic capability for running [Eve](https://vercel.com/eve) applications inside a Platformatic runtime.
 
 It can build an Eve application, run it in development or production mode, expose it through Platformatic gateway metadata, collect Platformatic HTTP metrics, and support custom build/start commands when the default Eve integration is not enough.
 
