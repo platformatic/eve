@@ -6,3 +6,6 @@ coverage
 .vscode
 .vim
 .zed
+.pi
+CLAUDE.md
+AGENTS.md
