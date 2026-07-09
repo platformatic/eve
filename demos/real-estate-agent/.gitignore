@@ -1,0 +1,15 @@
+node_modules
+.env
+
+# The root pnpm-lock.yaml is the source of truth (demos are workspace members).
+# pnpm regenerates a demo-level lockfile when run from here; don't track it.
+pnpm-lock.yaml
+
+# eve / Watt generated artifacts
+.eve
+.workflow-data
+.generated
+.output
+.vercel
+.turbo
+dist

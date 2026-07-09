@@ -1,3 +1,5 @@
+packages:
+  - demos/*
 allowBuilds:
   protobufjs: true
   unrs-resolver: true

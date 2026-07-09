@@ -1,0 +1,15 @@
+# Two jobs, one file:
+#
+# 1. eve dev-runtime source-root marker. In `pnpm dev`, eve snapshots its
+#    "source root" — the nearest ancestor with a `.git` or `pnpm-workspace.yaml`.
+#    This pins it to the demo instead of the parent @platformatic/eve repo (see
+#    demos/README.md). `packages: []` means it is NOT a nested pnpm workspace.
+#
+# 2. Standalone pnpm config for this self-contained demo (it references the
+#    capability via `file:../..`, not `workspace:*`). `allowBuilds` approves the
+#    same native build scripts the parent repo does, so `pnpm install` /
+#    `pnpm dev` don't fail on ignored build scripts.
+packages: []
+allowBuilds:
+  protobufjs: true
+  unrs-resolver: true
