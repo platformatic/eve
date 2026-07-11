@@ -1,0 +1,29 @@
+{
+  "name": "@platformatic/eve-demo-weather-assistant",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "The eve quickstart weather agent, running on Platformatic Watt via @platformatic/eve.",
+  "scripts": {
+    "dev": "wattpm dev",
+    "build": "wattpm build",
+    "start": "wattpm start"
+  },
+  "dependencies": {
+    "@platformatic/eve": "file:../..",
+    "eve": "0.20.0",
+    "wattpm": "^3.60.0",
+    "zod": "^4.4.3"
+  },
+  "optionalDependencies": {
+    "@ai-sdk/anthropic": "^2.0.0",
+    "@ai-sdk/openai": "^2.0.0"
+  },
+  "devDependencies": {
+    "ai": "^7.0.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">= 22.19.0"
+  }
+}

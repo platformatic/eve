@@ -4,7 +4,7 @@ import neostandard from 'neostandard'
 
 const eslint = [
   ...neostandard({ ts: true }),
-  globalIgnores(['dist/', 'eve-old/', 'external/']),
+  globalIgnores(['dist/', 'eve-old/', 'external/', 'demos/']),
   {
     files: ['**/*.ts'],
     rules: {

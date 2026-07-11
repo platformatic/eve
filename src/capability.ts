@@ -237,8 +237,7 @@ export class EveCapability extends BaseCapability {
     })
 
     const serverOptions = this.serverConfig as
-      | { hostname?: string; port?: number | string; https?: Parameters<typeof sanitizeHTTPSOptions>[0] }
-      | undefined
+      { hostname?: string; port?: number | string; https?: Parameters<typeof sanitizeHTTPSOptions>[0] } | undefined
     const serverPromise = this.#createServerListener(serverOptions, await buildAdditionalServerOptions(serverOptions))
 
     const originalEnvironment: OriginalEnvironment = new Map()
