@@ -3,6 +3,7 @@ node_modules
 coverage
 .eslintcache
 .env
+.npmrc
 .vscode
 .vim
 .zed

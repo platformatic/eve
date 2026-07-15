@@ -1,0 +1,10 @@
+{
+  "name": "@platformatic/next-eve-world",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": "./index.mjs",
+  "dependencies": {
+    "@platformatic/world": "^0.9.0"
+  }
+}

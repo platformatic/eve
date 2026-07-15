@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.platformatic.dev/@platformatic/next/3.60.0.json",
+  "module": "@platformatic/next",
+  "application": {
+    "commands": {
+      "development": "next dev",
+      "build": "next build",
+      "production": "next start"
+    }
+  },
+  "runtime": {
+    "workers": {
+      "static": 1,
+      "dynamic": false
+    },
+    "server": {
+      "hostname": "0.0.0.0",
+      "port": "{PORT}"
+    },
+    "logger": {
+      "level": "info"
+    }
+  }
+}

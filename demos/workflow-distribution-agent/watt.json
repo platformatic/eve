@@ -1,6 +1,12 @@
 {
   "$schema": "https://schemas.platformatic.dev/@platformatic/eve/0.0.1.json",
   "module": "@platformatic/eve",
+  "runtime": {
+    "workers": {
+      "static": 3,
+      "dynamic": false
+    }
+  },
   "server": {
     "hostname": "0.0.0.0",
     "port": "{PORT}"

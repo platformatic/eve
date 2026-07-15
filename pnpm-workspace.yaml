@@ -1,7 +1,10 @@
 packages:
   - demos/*
 allowBuilds:
+  cbor-extract: true
+  msgpackr-extract: true
   protobufjs: true
+  sharp: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
   - eve@0.20.0
@@ -11,3 +14,4 @@ minimumReleaseAgeExclude:
   - '@platformatic/itc@3.60.0'
   - '@platformatic/metrics@3.60.0'
   - '@platformatic/telemetry@3.60.0'
+  - '@platformatic/eve@0.1.0'

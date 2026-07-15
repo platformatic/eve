@@ -1,0 +1,15 @@
+# Two jobs, one file:
+#
+# 1. eve dev-runtime source-root marker. In `pnpm dev`, eve snapshots its
+#    "source root" - the nearest ancestor with a `.git` or `pnpm-workspace.yaml`.
+#    This pins it to the demo instead of the parent @platformatic/eve repo.
+#
+# 2. Standalone pnpm config for this self-contained demo. `allowBuilds`
+#    approves the same native build scripts as the parent repository.
+packages: []
+allowBuilds:
+  protobufjs: true
+  unrs-resolver: true
+  cbor-extract: true
+minimumReleaseAgeExclude:
+  - '@platformatic/eve@0.1.0'
