@@ -1,26 +1,24 @@
 {
-  "name": "@platformatic/eve-demo-weather-assistant",
+  "name": "@platformatic/eve-demo-workflow-distribution-agent",
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "description": "The eve quickstart weather agent, running on Platformatic Watt via @platformatic/eve.",
+  "description": "A deterministic Eve agent for testing workflow distribution across Watt workers and Kubernetes pods.",
   "scripts": {
     "dev": "wattpm dev",
     "build": "wattpm build",
-    "start": "wattpm start"
+    "start": "wattpm start",
+    "verify:distribution": "node scripts/verify-distribution.mjs"
   },
   "dependencies": {
     "@platformatic/eve": "0.0.1",
+    "@platformatic/globals": "^3.60.0",
     "@platformatic/runtime": "^3.60.0",
     "@platformatic/world": "^0.9.0",
     "@workflow/world": "^4.2.1",
     "eve": "0.20.0",
     "wattpm": "^3.60.0",
     "zod": "^4.4.3"
-  },
-  "optionalDependencies": {
-    "@ai-sdk/anthropic": "^2.0.0",
-    "@ai-sdk/openai": "^2.0.0"
   },
   "devDependencies": {
     "ai": "^7.0.0",

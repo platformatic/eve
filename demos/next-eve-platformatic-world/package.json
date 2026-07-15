@@ -1,0 +1,36 @@
+{
+  "name": "@platformatic/eve-demo-next-platformatic-world",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wattpm dev",
+    "build:eve": "eve build",
+    "build": "pnpm run build:eve && wattpm build",
+    "start": "wattpm start",
+    "verify:deployment": "node scripts/verify-deployment.mjs"
+  },
+  "dependencies": {
+    "@platformatic/next-eve-world": "file:./world-adapter",
+    "@platformatic/next": "^3.60.0",
+    "@platformatic/runtime": "^3.60.0",
+    "@platformatic/world": "^0.9.0",
+    "@workflow/world": "^4.2.1",
+    "ai": "^7.0.0",
+    "eve": "0.20.0",
+    "next": "^16.2.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "wattpm": "^3.60.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

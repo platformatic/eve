@@ -1,0 +1,6 @@
+# Keep this demo as an independent Eve source root and pnpm workspace.
+packages: []
+allowBuilds:
+  protobufjs: true
+  unrs-resolver: true
+  cbor-extract: true

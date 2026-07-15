@@ -13,3 +13,4 @@ packages: []
 allowBuilds:
   protobufjs: true
   unrs-resolver: true
+  cbor-extract: true

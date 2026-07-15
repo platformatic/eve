@@ -1,0 +1,11 @@
+# Eve source-root marker and standalone pnpm workspace for this demo.
+packages: []
+allowBuilds:
+  protobufjs: true
+  unrs-resolver: true
+  cbor-extract: true
+  msgpackr-extract: true
+  sharp: true
+minimumReleaseAgeExclude:
+  - '@fastify/swagger@9.8.1'
+  - protobufjs@8.7.1

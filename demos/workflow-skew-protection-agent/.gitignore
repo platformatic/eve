@@ -1,0 +1,10 @@
+node_modules
+pnpm-lock.yaml
+.eve
+.workflow-data
+.generated
+.output
+.vercel
+.turbo
+dist
+.skew-results

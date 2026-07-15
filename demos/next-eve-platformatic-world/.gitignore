@@ -1,0 +1,11 @@
+node_modules
+pnpm-lock.yaml
+.next
+.eve
+.output
+.workflow-data
+.vercel
+.skew-results
+.deployment-results
+next-env.d.ts
+*.tsbuildinfo
