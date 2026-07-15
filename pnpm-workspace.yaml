@@ -1,7 +1,10 @@
 packages:
   - demos/*
 allowBuilds:
+  cbor-extract: true
+  msgpackr-extract: true
   protobufjs: true
+  sharp: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
   - eve@0.20.0
