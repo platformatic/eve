@@ -4,3 +4,5 @@ allowBuilds:
   protobufjs: true
   unrs-resolver: true
   cbor-extract: true
+minimumReleaseAgeExclude:
+  - '@platformatic/eve@0.1.0'

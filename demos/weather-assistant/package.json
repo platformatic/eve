@@ -10,7 +10,7 @@
     "start": "wattpm start"
   },
   "dependencies": {
-    "@platformatic/eve": "0.0.1",
+    "@platformatic/eve": "^0.1.0",
     "@platformatic/runtime": "^3.60.0",
     "@platformatic/world": "^0.9.0",
     "@workflow/world": "^4.2.1",

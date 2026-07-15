@@ -119,8 +119,8 @@ importers:
   demos/real-estate-agent:
     dependencies:
       '@platformatic/eve':
-        specifier: file:../..
-        version: 'file:'
+        specifier: ^0.1.0
+        version: 0.1.0
       eve:
         specifier: 0.20.0
         version: 0.20.0(@opentelemetry/api@1.9.1)(ai@7.0.17(zod@4.4.3))
@@ -148,8 +148,8 @@ importers:
   demos/weather-assistant:
     dependencies:
       '@platformatic/eve':
-        specifier: 0.0.1
-        version: 0.0.1
+        specifier: ^0.1.0
+        version: 0.1.0
       '@platformatic/runtime':
         specifier: ^3.60.0
         version: 3.60.0
@@ -186,8 +186,42 @@ importers:
   demos/workflow-distribution-agent:
     dependencies:
       '@platformatic/eve':
-        specifier: 0.0.1
-        version: 0.0.1
+        specifier: ^0.1.0
+        version: 0.1.0
+      '@platformatic/globals':
+        specifier: ^3.60.0
+        version: 3.60.0
+      '@platformatic/runtime':
+        specifier: ^3.60.0
+        version: 3.60.0
+      '@platformatic/world':
+        specifier: ^0.9.0
+        version: 0.9.0
+      '@workflow/world':
+        specifier: ^4.2.1
+        version: 4.2.1
+      eve:
+        specifier: 0.20.0
+        version: 0.20.0(@opentelemetry/api@1.9.1)(ai@7.0.17(zod@4.4.3))
+      wattpm:
+        specifier: ^3.60.0
+        version: 3.60.0
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+    devDependencies:
+      ai:
+        specifier: ^7.0.0
+        version: 7.0.17(zod@4.4.3)
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  demos/workflow-skew-protection-agent:
+    dependencies:
+      '@platformatic/eve':
+        specifier: ^0.1.0
+        version: 0.1.0
       '@platformatic/globals':
         specifier: ^3.60.0
         version: 3.60.0
@@ -1040,12 +1074,8 @@ packages:
     resolution: {integrity: sha512-Txc1z3F38yYsvqnH7LgXq/zPxptv28pQrNRj3NytQ3zmV7yc6l3kHh24yGjW1QuosS9HpNXASh6+zwLK4lYM5g==}
     engines: {node: '>=22.19.0'}
 
-  '@platformatic/eve@0.0.1':
-    resolution: {integrity: sha512-HI3eJesHzY3EyvjI36yQuXC/u99uDNkFrI1lcodI8+zvJXZj2kIwPJE/AK/eDiLdXlkwWW+U2RtnoZyt6ER26g==}
-    engines: {node: '>= 22.19.0'}
-
-  '@platformatic/eve@file:':
-    resolution: {directory: '', type: directory}
+  '@platformatic/eve@0.1.0':
+    resolution: {integrity: sha512-LknP09otD6EpkNK3YRB/K4FBA8QDiRVsbbWriyEWjSfeebDS9KyiGFJh90MzWG0YutAQyiSAPyvEpevmAcH6cQ==}
     engines: {node: '>= 22.19.0'}
 
   '@platformatic/foundation@3.60.0':
@@ -4398,19 +4428,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@platformatic/eve@0.0.1':
-    dependencies:
-      '@platformatic/basic': 3.60.0
-      '@platformatic/foundation': 3.60.0
-      ajv: 8.20.0
-      light-my-request: 6.6.0
-      semver: 7.8.5
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
-
-  '@platformatic/eve@file:':
+  '@platformatic/eve@0.1.0':
     dependencies:
       '@platformatic/basic': 3.60.0
       '@platformatic/foundation': 3.60.0
