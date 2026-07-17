@@ -41,6 +41,7 @@ pnpm install && npm run build
 
 # this demo
 cd demos/weather-assistant
+cp .env.sample .env  # set EVE_BEARER_TOKEN to a long, random value
 pnpm dev
 ```
 
@@ -50,7 +51,10 @@ With no API keys set it runs offline on eve's `mockModel()`, which still calls
 Then, in another terminal:
 
 ```sh
+set -a; . ./.env; set +a
+
 curl -i -X POST http://127.0.0.1:3042/eve/v1/session \
+  -H "authorization: Bearer $EVE_BEARER_TOKEN" \
   -H 'content-type: application/json' \
   -d '{"message":"What is the weather in Brooklyn?"}'
 ```
@@ -58,8 +62,12 @@ curl -i -X POST http://127.0.0.1:3042/eve/v1/session \
 The response carries an `x-eve-session-id` header. Stream that session:
 
 ```sh
-curl http://127.0.0.1:3042/eve/v1/session/<sessionId>/stream
+curl -H "authorization: Bearer $EVE_BEARER_TOKEN" \
+  http://127.0.0.1:3042/eve/v1/session/<sessionId>/stream
 ```
+
+`EVE_BEARER_TOKEN` protects all session routes, including local requests. The
+health route remains public for infrastructure probes.
 
 ## Production build
 

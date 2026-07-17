@@ -12,6 +12,8 @@ const NAMESPACE = process.env.SKEW_NAMESPACE ?? 'platformatic'
 const EXPECTED_CONTEXT = process.env.SKEW_KUBERNETES_CONTEXT ?? 'k3d-plt-skew-protection'
 const COORDINATOR_PORT = readPositiveIntegerEnvironment('SKEW_COORDINATOR_PORT', 39091, 65535)
 const OPERATION_TIMEOUT_MS = readPositiveIntegerEnvironment('SKEW_OPERATION_TIMEOUT_MS', 300_000)
+const BEARER_TOKEN = readRequiredEnvironment('EVE_BEARER_TOKEN')
+const AUTHORIZATION_HEADER = { authorization: `Bearer ${BEARER_TOKEN}` }
 const POLL_INTERVAL_MS = 1_000
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url))
 const DEMO_DIR = resolve(SCRIPT_DIR, '..')
@@ -207,7 +209,7 @@ async function deployVersion (version, image) {
   const { createDeployment, createService } = await import(pathToFileURL(join(DESK_ROOT, 'lib/deploy.js')).href)
   const runDir = await mkdtemp(join(tmpdir(), 'eve-skew-desk-'))
   const context = { runDir }
-  const env = { PORT: '3042', SKEW_COORDINATOR_URL: coordinatorUrl }
+  const env = { PORT: '3042', SKEW_COORDINATOR_URL: coordinatorUrl, EVE_BEARER_TOKEN: BEARER_TOKEN }
   const options = {
     context,
     version,
@@ -300,7 +302,7 @@ async function sendTurn ({ sessionId, continuationToken, message }) {
     try {
       const response = await requestBuffer(new URL(`${BASE_URL}${path}`), {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
+        headers: { ...AUTHORIZATION_HEADER, 'content-type': 'application/json' },
         body: JSON.stringify(body)
       })
       if ([502, 503, 504].includes(response.statusCode)) {
@@ -354,7 +356,7 @@ function readNdjsonUntilBoundary (url, expectedBoundaries) {
     let settled = false
     let response
 
-    const request = createRequest(url, { method: 'GET' }, incoming => {
+    const request = createRequest(url, { method: 'GET', headers: AUTHORIZATION_HEADER }, incoming => {
       response = incoming
       if ((incoming.statusCode ?? 0) < 200 || (incoming.statusCode ?? 0) >= 300) {
         const chunks = []
@@ -642,6 +644,14 @@ function readPositiveIntegerEnvironment (name, defaultValue, maximum = Number.MA
     throw new Error(`${name} must be an integer from 1 to ${maximum}`)
   }
   return parsed
+}
+
+function readRequiredEnvironment (name) {
+  const value = process.env[name]
+  if (!value) {
+    throw new Error(`${name} must be set`)
+  }
+  return value
 }
 
 function readRunLabel (value) {

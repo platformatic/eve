@@ -24,12 +24,14 @@ Each probe reports three independent routing signals:
 - Docker must be connected to the local `plt.localreg` registry used by the profile.
 - A private-registry npmrc must exist. The verifier checks `SKEW_NPMRC`, the distribution demo's `.npmrc`, then `~/.npmrc`.
 - The Desk checkout defaults to `~/Programmazione/Work/Platformatic/desk`; override it with `SKEW_DESK_ROOT`.
+- `EVE_BEARER_TOKEN` must contain a long, random token used by the deployment and verifier.
 
 ## Run
 
 From this directory:
 
 ```sh
+cp .env.sample .env  # set EVE_BEARER_TOKEN
 pnpm verify:skew https://svcs.gw.plt/workflow-skew-protection-agent
 ```
 
@@ -56,6 +58,9 @@ SKEW_NPMRC
 SKEW_OPERATION_TIMEOUT_MS
 SKEW_RUN_LABEL
 ```
+
+The token protects session routes, including local requests. Health checks and
+workflow delivery callbacks remain public.
 
 The coordinator listens on the host and application pods connect through `host.k3d.internal`.
 

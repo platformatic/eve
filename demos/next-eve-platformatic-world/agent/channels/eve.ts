@@ -1,4 +1,4 @@
-import { none } from 'eve/channels/auth'
 import { eveChannel } from 'eve/channels/eve'
+import { bearerTokenAuth } from '../lib/bearer-token-auth'
 
-export default eveChannel({ auth: [none()] })
+export default eveChannel({ auth: [bearerTokenAuth()] })

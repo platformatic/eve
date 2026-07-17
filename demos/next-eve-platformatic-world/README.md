@@ -32,12 +32,16 @@ The home page is a marketing-oriented campaign launch experience built with `use
 The default campaign run is paced to roughly 25-30 seconds. The timing is deliberate so each durable action and business result is visible during a short presentation.
 
 Session events and the cursor are stored in browser `localStorage`, so a refresh restores the conversation.
+The bearer token is entered before the campaign UI mounts and stays only in
+browser memory, so a refresh requires entering it again. It is never stored with
+the session or exposed through a `NEXT_PUBLIC_*` variable.
 The Docker build sets `NEXT_PUBLIC_BASE_PATH=/next-eve-platformatic-world`. Next uses it as `assetPrefix`, and `useEveAgent()` uses the same value as its API host. Local builds leave it empty unless explicitly configured.
 
 ## Local build
 
 ```sh
 pnpm install
+cp .env.sample .env  # set EVE_BEARER_TOKEN to a long, random value
 pnpm build
 pnpm start
 ```
@@ -67,3 +71,7 @@ NEXT_EVE_REUSE_VERSION
 NEXT_EVE_STAGES
 NEXT_EVE_TIMEOUT_MS
 ```
+
+`EVE_BEARER_TOKEN` is required and is passed to the deployment by the verifier.
+It protects Eve session routes; the Next page, static assets, health route, and
+workflow delivery callback remain public.
