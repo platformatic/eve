@@ -36,13 +36,17 @@ Install and build the capability at the repository root, then start the demo:
 pnpm install
 npm run build
 cd demos/workflow-distribution-agent
+cp .env.sample .env  # set EVE_BEARER_TOKEN to a long, random value
 pnpm dev
 ```
 
 Create an eight-stage session:
 
 ```sh
+set -a; . ./.env; set +a
+
 curl -i -X POST http://127.0.0.1:3042/eve/v1/session \
+  -H "authorization: Bearer $EVE_BEARER_TOKEN" \
   -H 'content-type: application/json' \
   -d '{"message":"distribution-test:8"}'
 ```
@@ -50,8 +54,12 @@ curl -i -X POST http://127.0.0.1:3042/eve/v1/session \
 Read the durable NDJSON stream using the `x-eve-session-id` response header:
 
 ```sh
-curl -N http://127.0.0.1:3042/eve/v1/session/<sessionId>/stream
+curl -N -H "authorization: Bearer $EVE_BEARER_TOKEN" \
+  http://127.0.0.1:3042/eve/v1/session/<sessionId>/stream
 ```
+
+The token protects session routes, including local requests. Health checks and
+workflow delivery callbacks remain public.
 
 Each `probe_execution` result has this shape:
 

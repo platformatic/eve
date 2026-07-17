@@ -11,6 +11,8 @@ const NAMESPACE = process.env.NEXT_EVE_NAMESPACE ?? 'platformatic'
 const EXPECTED_CONTEXT = process.env.NEXT_EVE_KUBERNETES_CONTEXT ?? 'k3d-plt-skew-protection'
 const TIMEOUT_MS = readPositiveIntegerEnvironment('NEXT_EVE_TIMEOUT_MS', 600_000)
 const STAGE_COUNT = readPositiveIntegerEnvironment('NEXT_EVE_STAGES', 3)
+const BEARER_TOKEN = readRequiredEnvironment('EVE_BEARER_TOKEN')
+const AUTHORIZATION_HEADER = { authorization: `Bearer ${BEARER_TOKEN}` }
 if (STAGE_COUNT > 8) throw new Error('NEXT_EVE_STAGES must not exceed 8')
 const EXPECTED_OPERATIONS = [
   ['POST /campaigns/velocity/plan', 'Campaign API'],
@@ -61,7 +63,7 @@ try {
   const workflowStartedAt = Date.now()
   const create = await retryRequest(new URL(`${baseUrl}/eve/v1/session`), {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: { ...AUTHORIZATION_HEADER, 'content-type': 'application/json' },
     body: JSON.stringify({
       message: STAGE_COUNT === 6
         ? 'Launch the Velocity running shoe campaign across Europe.'
@@ -86,7 +88,7 @@ try {
   }
   const continuation = await retryRequest(new URL(`${baseUrl}/eve/v1/session/${encodeURIComponent(sessionId)}`), {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: { ...AUTHORIZATION_HEADER, 'content-type': 'application/json' },
     body: JSON.stringify({ message: 'status', continuationToken })
   })
   if (![200, 202].includes(continuation.statusCode)) {
@@ -174,7 +176,8 @@ async function deployVersion () {
   try {
     await createDeployment(APP_NAME, image, NAMESPACE, {
       PORT: '3042',
-      EVE_NEXT_PRODUCTION_PORT: '4274'
+      EVE_NEXT_PRODUCTION_PORT: '4274',
+      EVE_BEARER_TOKEN: BEARER_TOKEN
     }, false, options)
     await createService(APP_NAME, image, NAMESPACE, false, {
       context,
@@ -249,7 +252,7 @@ function readSession (sessionId, startIndex = 0) {
     let buffer = ''
     let settled = false
     let response
-    const request = createRequest(url, { method: 'GET' }, incoming => {
+    const request = createRequest(url, { method: 'GET', headers: AUTHORIZATION_HEADER }, incoming => {
       response = incoming
       if ((incoming.statusCode ?? 0) < 200 || (incoming.statusCode ?? 0) >= 300) {
         return fail(new Error(`Stream returned HTTP ${incoming.statusCode}`))
@@ -440,6 +443,14 @@ function readPositiveIntegerEnvironment (name, defaultValue) {
     throw new Error(`${name} must be a positive integer`)
   }
   return parsed
+}
+
+function readRequiredEnvironment (name) {
+  const value = process.env[name]
+  if (!value) {
+    throw new Error(`${name} must be set`)
+  }
+  return value
 }
 
 function readHeader (value) {

@@ -8,6 +8,8 @@ const EXPECTED_WORKERS_PER_POD = 3
 const CRASH_PERCENT = 10
 const REQUEST_TIMEOUT_MS = 600_000
 const FAILURE_EVENTS = new Set(['session.failed', 'step.failed', 'turn.failed'])
+const BEARER_TOKEN = readRequiredEnvironment('EVE_BEARER_TOKEN')
+const AUTHORIZATION_HEADER = { authorization: `Bearer ${BEARER_TOKEN}` }
 
 if (process.argv.length !== 3) {
   console.error('Usage: node scripts/verify-distribution.mjs <base-url>')
@@ -128,7 +130,7 @@ async function runSession (number) {
   const startedAt = performance.now()
   const createResponse = await requestBuffer(new URL(`${baseUrl}/eve/v1/session`), {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: { ...AUTHORIZATION_HEADER, 'content-type': 'application/json' },
     body: JSON.stringify({ message: `distribution-test:${STAGE_COUNT}:crash` })
   })
 
@@ -312,6 +314,14 @@ function readPositiveIntegerEnvironment (name, defaultValue, maximum = Number.MA
   return parsed
 }
 
+function readRequiredEnvironment (name) {
+  const value = process.env[name]
+  if (!value) {
+    throw new Error(`${name} must be set`)
+  }
+  return value
+}
+
 function readSessionId (response) {
   const header = response.headers['x-eve-session-id']
   if (typeof header === 'string' && header.length > 0) {
@@ -359,7 +369,7 @@ function readNdjsonStream (url) {
     let settled = false
     let response
 
-    const request = createRequest(url, { method: 'GET' }, incoming => {
+    const request = createRequest(url, { method: 'GET', headers: AUTHORIZATION_HEADER }, incoming => {
       response = incoming
       if ((incoming.statusCode ?? 0) < 200 || (incoming.statusCode ?? 0) >= 300) {
         const chunks = []

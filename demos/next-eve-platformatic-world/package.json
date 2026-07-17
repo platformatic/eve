@@ -8,7 +8,7 @@
     "build:eve": "eve build",
     "build": "pnpm run build:eve && wattpm build",
     "start": "wattpm start",
-    "verify:deployment": "node scripts/verify-deployment.mjs"
+    "verify:deployment": "node --env-file-if-exists=.env scripts/verify-deployment.mjs"
   },
   "dependencies": {
     "@platformatic/next-eve-world": "file:./world-adapter",

@@ -8,7 +8,7 @@
     "dev": "wattpm dev",
     "build": "wattpm build",
     "start": "wattpm start",
-    "verify:skew": "node scripts/verify-skew-protection.mjs"
+    "verify:skew": "node --env-file-if-exists=.env scripts/verify-skew-protection.mjs"
   },
   "dependencies": {
     "@platformatic/eve": "^0.1.0",

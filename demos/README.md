@@ -51,20 +51,30 @@ pnpm install && npm run build
 
 # then, per demo
 cd demos/weather-assistant
+cp .env.sample .env  # set EVE_BEARER_TOKEN to a long, random value
 pnpm dev          # wattpm dev — starts Watt, which starts the eve app
 ```
 
 Watt serves the agent's HTTP channel. Start a durable session and stream it:
 
 ```sh
+# Load the token from this demo's .env in the caller shell.
+set -a; . ./.env; set +a
+
 # Create a session (returns an x-eve-session-id header + continuationToken body)
 curl -i -X POST http://127.0.0.1:3042/eve/v1/session \
+  -H "authorization: Bearer $EVE_BEARER_TOKEN" \
   -H 'content-type: application/json' \
   -d '{"message":"What is the weather in Brooklyn?"}'
 
 # Attach to the NDJSON event stream for that session id
-curl http://127.0.0.1:3042/eve/v1/session/<sessionId>/stream
+curl -H "authorization: Bearer $EVE_BEARER_TOKEN" \
+  http://127.0.0.1:3042/eve/v1/session/<sessionId>/stream
 ```
+
+The bearer token is required for session creation, continuation, and streaming,
+including local requests. Health checks and workflow delivery callbacks remain
+public so infrastructure probes and Platformatic World can reach them.
 
 For production: `pnpm build` (runs `wattpm build`, which calls eve's build
 pipeline) then `pnpm start`.

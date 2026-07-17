@@ -1,6 +1,6 @@
-import { localDev, none } from 'eve/channels/auth'
 import { eveChannel } from 'eve/channels/eve'
+import { bearerTokenAuth } from '../lib/bearer-token-auth.ts'
 
 export default eveChannel({
-  auth: [localDev(), none()]
+  auth: [bearerTokenAuth()]
 })

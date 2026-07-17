@@ -36,12 +36,51 @@ const PHASES = [
   { title: 'Campaign live', action: 'POST /campaigns/velocity/publish', system: 'Campaign API', copy: 'Launch everywhere with one coordinated action.' }
 ]
 export function AgentConsole () {
+  const [token, setToken] = useState<string>()
+  const [candidate, setCandidate] = useState('')
+
+  if (token === undefined) {
+    return (
+      <section className='auth-gate'>
+        <p className='kicker'>Protected demo</p>
+        <h2>Enter the demo token.</h2>
+        <p>The token stays in this browser tab and is sent only as an authorization header.</p>
+        <form onSubmit={event => {
+          event.preventDefault()
+          if (candidate.length === 0) {
+            return
+          }
+          setToken(candidate)
+          setCandidate('')
+        }}>
+          <label htmlFor='demo-token'>Bearer token</label>
+          <div>
+            <input
+              autoComplete='current-password'
+              id='demo-token'
+              onChange={event => setCandidate(event.target.value)}
+              required
+              type='password'
+              value={candidate}
+            />
+            <button type='submit'>Unlock demo</button>
+          </div>
+        </form>
+      </section>
+    )
+  }
+
+  return <AuthenticatedAgentConsole onChangeToken={() => setToken(undefined)} token={token} />
+}
+
+function AuthenticatedAgentConsole ({ onChangeToken, token }: { onChangeToken: () => void, token: string }) {
   const [saved] = useState<SavedSession>(() => {
     if (typeof window === 'undefined') return {}
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '{}') as SavedSession } catch { return {} }
   })
   const [runStartIndex, setRunStartIndex] = useState(0)
   const agent = useEveAgent({
+    auth: { bearer: token },
     host: process.env.NEXT_PUBLIC_BASE_PATH ?? '',
     initialEvents: saved.events as never[] | undefined,
     initialSession: saved.session,
@@ -75,6 +114,10 @@ export function AgentConsole () {
 
   return (
     <>
+      <div className='auth-status'>
+        <span>Bearer token active</span>
+        <button className='text-button' disabled={busy} onClick={onChangeToken} type='button'>Change token</button>
+      </div>
       <section className='experience-grid'>
         <article className='brief-card'>
           <div className='product-art' aria-label='Velocity campaign artwork'>
