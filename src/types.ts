@@ -3,8 +3,21 @@ export interface DevelopmentServer {
   close: () => Promise<void>
 }
 
+/**
+ * Options accepted by Eve's `buildApplication` since eve 0.24.0.
+ * Earlier versions take no second argument and ignore it.
+ */
+export interface EveApplicationBuildOptions {
+  profileOutputPath?: string
+  skipVercelSandboxPrewarm: boolean
+  vercelServiceOutput?: {
+    hostOutputDirectory: string
+    serviceOutputDirectory: string
+  }
+}
+
 export interface EveNitroHost {
-  buildApplication: (root: string) => Promise<string>
+  buildApplication: (root: string, options: EveApplicationBuildOptions) => Promise<string>
   createDevelopmentServer: (
     root: string,
     options: { existing: 'reject'; host: string; port: number | string }
