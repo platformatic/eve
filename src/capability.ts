@@ -34,7 +34,7 @@ const BaseCapability = PlatformaticBaseCapability as unknown as new (
   context?: BaseOptions<BaseContext> | object
 ) => any
 
-export const supportedVersions = '^0.20.0'
+export const supportedVersions = '>=0.20.0 <0.26.0'
 
 export class EveCapability extends BaseCapability {
   #eve?: string
@@ -133,7 +133,8 @@ export class EveCapability extends BaseCapability {
 
     const { buildApplication } = await this.#importEveNitroHost()
 
-    return buildApplication(this.root)
+    // eve 0.24.0 made the options argument required; older versions ignore it.
+    return buildApplication(this.root, { skipVercelSandboxPrewarm: false })
   }
 
   inject (injectParams: InjectOptions): Promise<InjectViaRequestResponse>

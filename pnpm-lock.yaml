@@ -46,8 +46,8 @@ importers:
         specifier: ^5.5.5
         version: 5.5.6(eslint@9.39.4)(prettier@3.9.4)
       eve:
-        specifier: 0.20.0
-        version: 0.20.0(@opentelemetry/api@1.9.1)(ai@7.0.17(zod@4.4.3))
+        specifier: 0.25.3
+        version: 0.25.3(@opentelemetry/api@1.9.1)(ai@7.0.17(zod@4.4.3))
       neostandard:
         specifier: ^0.12.2
         version: 0.12.2(@typescript-eslint/utils@8.63.0(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4)(typescript@5.9.3)
@@ -2056,6 +2056,26 @@ packages:
     peerDependencies:
       '@opentelemetry/api': ^1.0.0
       ai: ^7.0.0
+      braintrust: ^3.0.0
+      just-bash: ^3.0.0
+      microsandbox: ^0.5.0
+    peerDependenciesMeta:
+      '@opentelemetry/api':
+        optional: true
+      braintrust:
+        optional: true
+      just-bash:
+        optional: true
+      microsandbox:
+        optional: true
+
+  eve@0.25.3:
+    resolution: {integrity: sha512-uySORtwV3I15ipyPFAGzeOhYs7HraEfvWg4e2yAum2nSwWMi8KZ1ctj8IHl7ueZ11pOK49Z6Hy5SS9HcsiR7QA==}
+    engines: {node: '>=24'}
+    hasBin: true
+    peerDependencies:
+      '@opentelemetry/api': ^1.0.0
+      ai: ^7.0.26
       braintrust: ^3.0.0
       just-bash: ^3.0.0
       microsandbox: ^0.5.0
@@ -5603,6 +5623,52 @@ snapshots:
   esutils@2.0.3: {}
 
   eve@0.20.0(@opentelemetry/api@1.9.1)(ai@7.0.17(zod@4.4.3)):
+    dependencies:
+      ai: 7.0.17(zod@4.4.3)
+      nitro: 3.0.260610-beta
+    optionalDependencies:
+      '@opentelemetry/api': 1.9.1
+    transitivePeerDependencies:
+      - '@azure/app-configuration'
+      - '@azure/cosmos'
+      - '@azure/data-tables'
+      - '@azure/identity'
+      - '@azure/keyvault-secrets'
+      - '@azure/storage-blob'
+      - '@capacitor/preferences'
+      - '@deno/kv'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@netlify/blobs'
+      - '@netlify/runtime'
+      - '@planetscale/database'
+      - '@upstash/redis'
+      - '@vercel/blob'
+      - '@vercel/functions'
+      - '@vercel/kv'
+      - '@vercel/queue'
+      - aws4fetch
+      - better-sqlite3
+      - chokidar
+      - dotenv
+      - drizzle-orm
+      - giget
+      - idb-keyval
+      - ioredis
+      - jiti
+      - lru-cache
+      - miniflare
+      - mongodb
+      - mysql2
+      - rollup
+      - sqlite3
+      - uploadthing
+      - vite
+      - wrangler
+      - xml2js
+      - zephyr-agent
+
+  eve@0.25.3(@opentelemetry/api@1.9.1)(ai@7.0.17(zod@4.4.3)):
     dependencies:
       ai: 7.0.17(zod@4.4.3)
       nitro: 3.0.260610-beta

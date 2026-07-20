@@ -49,7 +49,7 @@
     "cleaner-spec-reporter": "^1.0.3",
     "eslint": "^9.39.0",
     "eslint-plugin-prettier": "^5.5.5",
-    "eve": "0.20.0",
+    "eve": "0.25.3",
     "neostandard": "^0.12.2",
     "prettier": "^3.8.1",
     "prettier-plugin-space-before-function-paren": "^0.0.10",
