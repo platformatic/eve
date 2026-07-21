@@ -134,7 +134,41 @@ export class EveCapability extends BaseCapability {
     const { buildApplication } = await this.#importEveNitroHost()
 
     // eve 0.24.0 made the options argument required; older versions ignore it.
-    return buildApplication(this.root, { skipVercelSandboxPrewarm: false })
+    const output = await buildApplication(this.root, { skipVercelSandboxPrewarm: false })
+
+    await this.#logWorkflowWorld()
+
+    return output
+  }
+
+  // Which world the build wired in decides where workflow runs are persisted,
+  // and getting it wrong is silent: eve falls back to its bundled local world,
+  // the agent works, and nothing ever reaches the workflow service. Report it
+  // so the choice is visible in build output rather than inferred later.
+  async #logWorkflowWorld (): Promise<void> {
+    const logger = this.logger as { info: (arg: object, message: string) => void }
+    const outputDirectory = resolvePath(this.root, this.config.eve?.outputDirectory ?? '.output')
+    const manifestPath = resolvePath(outputDirectory, '.eve/compile/compiled-agent-manifest.json')
+
+    let world: string | undefined
+    try {
+      const manifest = JSON.parse(await readFile(manifestPath, 'utf-8'))
+      world = manifest?.config?.experimental?.workflow?.world
+    } catch {
+      // No manifest (custom build, older eve): nothing reliable to report.
+      return
+    }
+
+    if (world) {
+      logger.info({ world }, `Eve workflow world: ${world}`)
+      return
+    }
+
+    logger.info(
+      { world: 'local' },
+      'Eve workflow world: local (bundled). Workflow runs stay inside this instance; ' +
+        'set experimental.workflow.world in the agent to persist them elsewhere.'
+    )
   }
 
   inject (injectParams: InjectOptions): Promise<InjectViaRequestResponse>

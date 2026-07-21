@@ -167,6 +167,41 @@ Custom production start command.
 
 Standard Platformatic server configuration. Hostname, port, backlog, and HTTPS settings are applied to the Eve server.
 
+## Workflow world
+
+Eve persists workflow runs through a "world". This is configured in the agent, not in this
+capability, and it defaults to Eve's bundled local world, which keeps runs inside the running
+instance: they are not shared between replicas, do not survive a restart, and are not visible to
+anything outside the process.
+
+To persist runs to a Platformatic workflow service instead, set the world in `defineAgent`:
+
+```ts
+export default defineAgent({
+  model: await resolveModel(),
+  experimental: {
+    workflow: {
+      world: '@platformatic/world'
+    }
+  }
+})
+```
+
+and point the application at the service:
+
+```sh
+PLT_WORLD_SERVICE_URL=http://workflow.example.svc.cluster.local:3042
+```
+
+The application must also be registered with that workflow service, which ICC does when it deploys a
+workflow application.
+
+Two things to know. Eve 0.24 stopped reading the `WORKFLOW_TARGET_WORLD` environment variable for
+builds and takes the world from the agent config shown above, so an application relying on that
+variable silently falls back to the local world after upgrading. And because the fallback is silent,
+the capability logs the resolved world at build time, so check the build output if runs are not
+appearing where you expect.
+
 ## License
 
 Apache-2.0 - See [LICENSE](LICENSE) for more information.
