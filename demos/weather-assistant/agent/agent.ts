@@ -55,5 +55,13 @@ function weatherResponder (req: MockModelRequest) {
 export default defineAgent({
   model: await resolveModel(),
   // Set explicitly so the offline mock never needs an AI Gateway catalog lookup.
-  modelContextWindowTokens: 200_000
+  modelContextWindowTokens: 200_000,
+  // eve >= 0.24 takes the world from here, not from WORKFLOW_TARGET_WORLD.
+  // Without it the build silently bundles the in-memory world and runs are
+  // never persisted to the workflow service.
+  experimental: {
+    workflow: {
+      world: '@platformatic/world'
+    }
+  }
 })
