@@ -13,7 +13,6 @@ It can build an Eve application, run it in development or production mode, expos
 - Propagates Platformatic server options, including host, port, backlog, and HTTPS settings.
 - Supports Platformatic base paths and gateway metadata.
 - Supports Platformatic request injection and HTTP metrics.
-- Prewarms Eve production sandboxes before serving traffic.
 
 ## Requirements
 
