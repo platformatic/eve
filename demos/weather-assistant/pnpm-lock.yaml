@@ -39,15 +39,15 @@ importers:
     optionalDependencies:
       '@ai-sdk/anthropic':
         specifier: ^2.0.0
-        version: 2.0.91(zod@4.4.3)
+        version: 2.0.92(zod@4.4.3)
       '@ai-sdk/openai':
         specifier: ^2.0.0
         version: 2.0.115(zod@4.4.3)
 
 packages:
 
-  '@ai-sdk/anthropic@2.0.91':
-    resolution: {integrity: sha512-3to9SlfYOIsPvakux6SEW3kFudKsy8OEakm+0osAV7YEBMY4MtXUK/j8P+Y4VXrtVvrH6NVmhtT+TJFNx8WkEw==}
+  '@ai-sdk/anthropic@2.0.92':
+    resolution: {integrity: sha512-MlIQpuOnchlroR93Dq2GNw12jh/SAVjuFARXWRF/2SfowMv3J2fvPBUzA60waoQivZlf3XkzQ2nxSwer7dnh2g==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -66,6 +66,12 @@ packages:
 
   '@ai-sdk/provider-utils@3.0.30':
     resolution: {integrity: sha512-NCJ9JKow5ENAgEZxzvEvF20thwDiH+hutvzmrUDbloRX0azpJHNst8+7pZIVryYhLM9wgpT5/ShTSjPTFhkxEQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
+  '@ai-sdk/provider-utils@3.0.31':
+    resolution: {integrity: sha512-hlxLxqbdV+f7gBpL2SbLL+UhjV+DfUpJ28J4vSHekVV9fiTRrhqcd/ewJwaVbR/ahtLCGJPAVYzj+yJzaddc6g==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -131,6 +137,10 @@ packages:
 
   '@fastify/basic-auth@6.2.0':
     resolution: {integrity: sha512-Ao9Jf8TyW8v7p3CPy++c+E3qcCDeWfAlSIfFo0CsKrfvm81i0OCpnobIMwaSSkg/At0rzsLzbJPDWrgNru0G1w==}
+
+  '@fastify/busboy@2.1.1':
+    resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
+    engines: {node: '>=14'}
 
   '@fastify/deepmerge@3.2.1':
     resolution: {integrity: sha512-N5Oqvltoa2r9z1tbx4xjky0oRR60v+T47Ic4J1ukoVQcptLOrIdRnCSdTGmOmajZuHVKlTnfcmrjyqsGEW1ztA==}
@@ -1383,6 +1393,10 @@ packages:
   undici-types@8.3.0:
     resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
 
+  undici@5.29.0:
+    resolution: {integrity: sha512-raqeBD6NQK4SkWhQzeYKd1KmIG6dllBOTt55Rmkt4HtI9mwdWtJljnrXjAFUBLTSN67HWrOIZ3EPF4kjUw80Bg==}
+    engines: {node: '>=14.0'}
+
   undici@7.28.0:
     resolution: {integrity: sha512-cRZYrTDwWznlnRiPjggAGxZXanty6M8RV1ff8Wm4LWXBp7/IG8v5DnOm74DtUBp9OONpK75YlPnIjQqX0dBDtA==}
     engines: {node: '>=20.18.1'}
@@ -1537,10 +1551,10 @@ packages:
 
 snapshots:
 
-  '@ai-sdk/anthropic@2.0.91(zod@4.4.3)':
+  '@ai-sdk/anthropic@2.0.92(zod@4.4.3)':
     dependencies:
       '@ai-sdk/provider': 2.0.3
-      '@ai-sdk/provider-utils': 3.0.30(zod@4.4.3)
+      '@ai-sdk/provider-utils': 3.0.31(zod@4.4.3)
       zod: 4.4.3
     optional: true
 
@@ -1563,6 +1577,15 @@ snapshots:
       '@ai-sdk/provider': 2.0.3
       '@standard-schema/spec': 1.1.0
       eventsource-parser: 3.1.0
+      zod: 4.4.3
+    optional: true
+
+  '@ai-sdk/provider-utils@3.0.31(zod@4.4.3)':
+    dependencies:
+      '@ai-sdk/provider': 2.0.3
+      '@standard-schema/spec': 1.1.0
+      eventsource-parser: 3.1.0
+      undici: 5.29.0
       zod: 4.4.3
     optional: true
 
@@ -1632,6 +1655,9 @@ snapshots:
     dependencies:
       '@fastify/error': 4.2.0
       fastify-plugin: 5.1.0
+
+  '@fastify/busboy@2.1.1':
+    optional: true
 
   '@fastify/deepmerge@3.2.1': {}
 
@@ -3080,6 +3106,11 @@ snapshots:
       undici: 7.29.0
 
   undici-types@8.3.0: {}
+
+  undici@5.29.0:
+    dependencies:
+      '@fastify/busboy': 2.1.1
+    optional: true
 
   undici@7.28.0: {}
 
