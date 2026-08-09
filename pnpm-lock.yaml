@@ -13,7 +13,7 @@ importers:
         version: 3.67.0(supports-color@7.2.0)
       '@platformatic/foundation':
         specifier: ^3.60.0
-        version: 3.65.0(supports-color@7.2.0)
+        version: 3.67.0(supports-color@7.2.0)
       ajv:
         specifier: ^8.20.0
         version: 8.20.0
@@ -4474,7 +4474,7 @@ snapshots:
   '@platformatic/eve@0.1.2(supports-color@7.2.0)':
     dependencies:
       '@platformatic/basic': 3.65.0(supports-color@7.2.0)
-      '@platformatic/foundation': 3.65.0(supports-color@7.2.0)
+      '@platformatic/foundation': 3.67.0(supports-color@7.2.0)
       ajv: 8.20.0
       light-my-request: 6.6.0
       semver: 7.8.5
