@@ -249,11 +249,12 @@ export class EveCapability extends BaseCapability {
     let { hostname, port } = (this.serverConfig as { hostname?: string; port?: number | string }) ?? {}
     hostname ||= '127.0.0.1'
     port ||= 0
+    const numericPort = typeof port === 'string' ? Number(port) : port
 
     this.#developmentServer = createDevelopmentServer(this.root, {
       existing: 'reject',
       host: hostname,
-      port
+      port: numericPort
     })
 
     const handle = await this.#developmentServer.start()
