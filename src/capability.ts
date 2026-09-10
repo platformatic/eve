@@ -34,7 +34,7 @@ const BaseCapability = PlatformaticBaseCapability as unknown as new (
   context?: BaseOptions<BaseContext> | object
 ) => any
 
-export const supportedVersions = '>=0.20.0 <0.28.0'
+export const supportedVersions = '>=0.52.5 <0.53.0'
 
 export class EveCapability extends BaseCapability {
   #eve?: string
@@ -133,8 +133,10 @@ export class EveCapability extends BaseCapability {
 
     const { buildApplication } = await this.#importEveNitroHost()
 
-    // eve 0.24.0 made the options argument required; older versions ignore it.
-    const output = await buildApplication(this.root, { skipVercelSandboxPrewarm: false })
+    const output = await buildApplication(this.root, {
+      publicRoutePrefix: this.#basePath,
+      skipVercelSandboxPrewarm: false
+    })
 
     await this.#logWorkflowWorld()
 
