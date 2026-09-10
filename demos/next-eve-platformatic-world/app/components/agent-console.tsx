@@ -2,10 +2,11 @@
 
 import { useState } from 'react'
 import { useEveAgent } from 'eve/react'
+import type { ClientSessionState, MessageStreamEvent } from 'eve/client'
 
 interface SavedSession {
-  events?: readonly unknown[]
-  session?: { sessionId?: string, continuationToken?: string, streamIndex: number }
+  events?: readonly MessageStreamEvent[]
+  session?: ClientSessionState
 }
 
 interface CampaignResult {
@@ -82,9 +83,9 @@ function AuthenticatedAgentConsole ({ onChangeToken, token }: { onChangeToken: (
   const agent = useEveAgent({
     auth: { bearer: token },
     host: process.env.NEXT_PUBLIC_BASE_PATH ?? '',
-    initialEvents: saved.events as never[] | undefined,
+    initialEvents: saved.events ?? [],
     initialSession: saved.session,
-    maxReconnectAttempts: 8,
+    resume: saved.session !== undefined,
     onFinish (snapshot) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ events: snapshot.events, session: snapshot.session }))
     }
@@ -103,7 +104,7 @@ function AuthenticatedAgentConsole ({ onChangeToken, token }: { onChangeToken: (
 
   function launch () {
     setRunStartIndex(events.length)
-    void agent.send({ message: CAMPAIGN_PROMPT })
+    void agent.send(CAMPAIGN_PROMPT)
   }
 
   function reset () {
@@ -141,7 +142,7 @@ function AuthenticatedAgentConsole ({ onChangeToken, token }: { onChangeToken: (
               <button className='launch-button' disabled={busy || complete} onClick={launch} type='button'>
                 <span>{complete ? 'Campaign live' : busy ? 'Launching campaign' : 'Launch campaign'}</span><b>{busy ? `${progress}%` : complete ? '✓' : '→'}</b>
               </button>
-              {(results.length > 0 || agent.session.sessionId) && <button className='text-button' disabled={busy} onClick={reset} type='button'>Start over</button>}
+              {(results.length > 0 || agent.session?.sessionId) && <button className='text-button' disabled={busy} onClick={reset} type='button'>Start over</button>}
             </div>
             {agent.error && <p className='error-banner'>{agent.error.message}</p>}
           </div>
@@ -187,7 +188,7 @@ function AuthenticatedAgentConsole ({ onChangeToken, token }: { onChangeToken: (
           <summary>See runtime proof <span>session, deployment and event stream</span></summary>
           <div className='proof-grid'>
             <dl>
-              <div><dt>Session</dt><dd>{agent.session.sessionId ?? 'Not started'}</dd></div>
+              <div><dt>Session</dt><dd>{agent.session?.sessionId ?? 'Not started'}</dd></div>
               <div><dt>Deployment</dt><dd>{latest?.deploymentVersion ?? 'Waiting'}</dd></div>
               <div><dt>Build</dt><dd>{latest?.buildVersion ?? 'Waiting'}</dd></div>
               <div><dt>Pod</dt><dd>{latest?.pod ?? 'Waiting'}</dd></div>
