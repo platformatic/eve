@@ -14,4 +14,8 @@ allowBuilds:
   protobufjs: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
-  - '@platformatic/eve@0.1.0'
+  - '@ai-sdk/anthropic@4.0.52'
+  - '@ai-sdk/openai@4.0.65'
+  - '@ai-sdk/provider-utils@5.0.39'
+  - '@ai-sdk/provider@4.0.13'
+  - eve@0.52.5

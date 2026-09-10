@@ -119,8 +119,8 @@ importers:
   demos/real-estate-agent:
     dependencies:
       '@platformatic/eve':
-        specifier: ^0.1.0
-        version: 0.1.2
+        specifier: file:../..
+        version: 'file:'
       eve:
         specifier: 0.52.5
         version: 0.52.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
@@ -148,8 +148,8 @@ importers:
   demos/weather-assistant:
     dependencies:
       '@platformatic/eve':
-        specifier: ^0.1.0
-        version: 0.1.2
+        specifier: file:../..
+        version: 'file:'
       '@platformatic/runtime':
         specifier: ^3.60.0
         version: 3.68.0
@@ -186,8 +186,8 @@ importers:
   demos/workflow-distribution-agent:
     dependencies:
       '@platformatic/eve':
-        specifier: ^0.1.0
-        version: 0.1.2
+        specifier: file:../..
+        version: 'file:'
       '@platformatic/globals':
         specifier: ^3.60.0
         version: 3.68.0
@@ -220,8 +220,8 @@ importers:
   demos/workflow-skew-protection-agent:
     dependencies:
       '@platformatic/eve':
-        specifier: ^0.1.0
-        version: 0.1.2
+        specifier: file:../..
+        version: 'file:'
       '@platformatic/globals':
         specifier: ^3.60.0
         version: 3.68.0
@@ -1185,9 +1185,9 @@ packages:
     resolution: {integrity: sha512-V9qFfqeCJWKsfriGzAeBGfB0si1CU3TJ8vnvDzDMpUQWlAap/t4PkHMz+zSSLcsHNf7Rn8avxNjKo2iIiSH1PA==}
     engines: {node: '>=22.19.0'}
 
-  '@platformatic/eve@0.1.2':
-    resolution: {integrity: sha512-wifys+ohQQNr+qp4YB5OimS0ScdWsL5h0qXQty2UNnAPrhsq4ceyeu7R6+wMOJz1ItwIB5JUep7lx1P5bbqq8Q==}
-    engines: {node: '>= 22.19.0'}
+  '@platformatic/eve@file:':
+    resolution: {directory: '', type: directory}
+    engines: {node: '>=24'}
 
   '@platformatic/foundation@3.68.0':
     resolution: {integrity: sha512-VjIub7E4cFpGI6u7IT71K0EQadJRfwbRu7RRVoZXiCFID1oDNhIbbk23DLvNNRXkoOjZTiBcm2HHh6B20WOktg==}
@@ -1253,10 +1253,6 @@ packages:
 
   '@platformatic/world@0.13.0':
     resolution: {integrity: sha512-mnvizWURtXYWXwACWdX3zKNZyBzi/A+pUVrY5N8Dr+XZqFImT2XKxqcH/vY71EN8AsK4KN3UHtQ5h2v4NVZ49w==}
-    engines: {node: '>=22.19.0'}
-
-  '@platformatic/world@0.9.0':
-    resolution: {integrity: sha512-yN52aFxiRExbcNVJJHAlHZTMeH68eJjjbi0DBgxnBili5RwPc/4sdgMBTxL58hskYj7eGxlgCFv/rowJuIIgGg==}
     engines: {node: '>=22.19.0'}
 
   '@protobufjs/aspromise@1.1.2':
@@ -1679,9 +1675,6 @@ packages:
   cbor-extract@2.2.2:
     resolution: {integrity: sha512-hlSxxI9XO2yQfe9g6msd3g4xCfDqK5T5P0fRMLuaLHhxn4ViPrm+a+MUfhrvH2W962RGxcBwEGzLQyjbDG1gng==}
     hasBin: true
-
-  cbor-x@1.6.4:
-    resolution: {integrity: sha512-UGKHjp6RHC6QuZ2yy5LCKm7MojM4716DwoSaqwQpaH4DvZvbBTGcoDNTiG9Y2lByXZYFEs9WRkS5tLl96IrF1Q==}
 
   cbor-x@1.6.6:
     resolution: {integrity: sha512-8QiD9PGOxyQHo7s2pzwTBH6lTjqekxPdl9Aq6fXvZgCuCJHOht1puDEA/fTr6mciB76c+M+Gi0qT2i1a4pm4Wg==}
@@ -4302,7 +4295,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@platformatic/eve@0.1.2':
+  '@platformatic/eve@file:':
     dependencies:
       '@platformatic/basic': 3.68.0
       '@platformatic/foundation': 3.68.0
@@ -4395,7 +4388,7 @@ snapshots:
 
   '@platformatic/next-eve-world@file:demos/next-eve-platformatic-world/world-adapter':
     dependencies:
-      '@platformatic/world': 0.9.0
+      '@platformatic/world': 0.13.0
 
   '@platformatic/next@3.68.0':
     dependencies:
@@ -4502,12 +4495,6 @@ snapshots:
     dependencies:
       '@platformatic/globals': 3.68.0
       cbor-x: 1.6.6
-      undici: 8.10.2
-
-  '@platformatic/world@0.9.0':
-    dependencies:
-      '@platformatic/globals': 3.68.0
-      cbor-x: 1.6.4
       undici: 8.10.2
 
   '@protobufjs/aspromise@1.1.2': {}
@@ -4930,10 +4917,6 @@ snapshots:
       '@cbor-extract/cbor-extract-linux-x64': 2.2.2
       '@cbor-extract/cbor-extract-win32-x64': 2.2.2
     optional: true
-
-  cbor-x@1.6.4:
-    optionalDependencies:
-      cbor-extract: 2.2.2
 
   cbor-x@1.6.6:
     optionalDependencies:

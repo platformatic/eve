@@ -7,5 +7,10 @@ allowBuilds:
   msgpackr-extract: true
   sharp: true
 minimumReleaseAgeExclude:
+  - '@ai-sdk/anthropic@4.0.52'
+  - '@ai-sdk/openai@4.0.65'
+  - '@ai-sdk/provider-utils@5.0.39'
+  - '@ai-sdk/provider@4.0.13'
   - '@fastify/swagger@9.8.1'
+  - eve@0.52.5
   - protobufjs@8.7.1
