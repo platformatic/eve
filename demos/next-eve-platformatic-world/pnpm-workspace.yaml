@@ -12,5 +12,5 @@ minimumReleaseAgeExclude:
   - '@ai-sdk/provider-utils@5.0.39'
   - '@ai-sdk/provider@4.0.13'
   - '@fastify/swagger@9.8.1'
-  - eve@0.52.5
+  - eve@0.54.5
   - protobufjs@8.7.1

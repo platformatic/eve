@@ -46,8 +46,8 @@ importers:
         specifier: ^5.5.5
         version: 5.5.6(eslint@9.39.5)(prettier@3.9.6)
       eve:
-        specifier: 0.52.5
-        version: 0.52.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
+        specifier: 0.54.5
+        version: 0.54.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
       neostandard:
         specifier: ^0.13.0
         version: 0.13.0(eslint@9.39.5)(typescript@5.9.3)
@@ -85,8 +85,8 @@ importers:
         specifier: ^7.0.0
         version: 7.0.93(zod@4.5.4)
       eve:
-        specifier: 0.52.5
-        version: 0.52.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
+        specifier: 0.54.5
+        version: 0.54.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
       next:
         specifier: ^16.2.6
         version: 16.3.4(@opentelemetry/api@1.9.1)(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -122,8 +122,8 @@ importers:
         specifier: file:../..
         version: 'file:'
       eve:
-        specifier: 0.52.5
-        version: 0.52.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
+        specifier: 0.54.5
+        version: 0.54.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
       wattpm:
         specifier: ^3.60.0
         version: 3.68.0
@@ -160,8 +160,8 @@ importers:
         specifier: ^4.2.1
         version: 4.5.0
       eve:
-        specifier: 0.52.5
-        version: 0.52.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
+        specifier: 0.54.5
+        version: 0.54.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
       wattpm:
         specifier: ^3.60.0
         version: 3.68.0
@@ -201,8 +201,8 @@ importers:
         specifier: ^4.2.1
         version: 4.5.0
       eve:
-        specifier: 0.52.5
-        version: 0.52.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
+        specifier: 0.54.5
+        version: 0.54.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
       wattpm:
         specifier: ^3.60.0
         version: 3.68.0
@@ -235,8 +235,8 @@ importers:
         specifier: ^4.2.1
         version: 4.5.0
       eve:
-        specifier: 0.52.5
-        version: 0.52.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
+        specifier: 0.54.5
+        version: 0.54.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
       wattpm:
         specifier: ^3.60.0
         version: 3.68.0
@@ -1980,13 +1980,13 @@ packages:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
 
-  eve@0.52.5:
-    resolution: {integrity: sha512-MuzBnkI0c6Xbi4gIELCLr7wRSlgEQ1y8r1boSmt8NOZXOmFR8egNs0PIqaO8wwomiRoL9iLpUV/3P6ywg5MEXg==}
+  eve@0.54.5:
+    resolution: {integrity: sha512-Tq+vJQa8YIjuQJ5LIAFJzdht7F25e2jviPTHVy9dRCbRjinhXz/4cY2UwmkxH4Wq2jC9u1KjUhuVkRFRORuiQw==}
     engines: {node: '>=24'}
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.0.0
-      ai: ^7.0.82
+      ai: ^7.0.93
       braintrust: ^3.0.0
       dd-trace: ^6.13.0
       just-bash: ^3.1.0
@@ -5320,7 +5320,7 @@ snapshots:
 
   esutils@2.0.3: {}
 
-  eve@0.52.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4)):
+  eve@0.54.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4)):
     dependencies:
       ai: 7.0.93(zod@4.5.4)
       nitro: 3.0.260903-beta
