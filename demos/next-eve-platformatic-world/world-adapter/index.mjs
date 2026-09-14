@@ -5,7 +5,6 @@ export function createWorld () {
 
   return {
     ...world,
-    specVersion: 4,
     queue (queueName, message, options) {
       const normalizedQueueName = queueName.replace(
         /^__[a-z][a-z0-9]*_(wkf_(?:workflow|step)_.+)$/,

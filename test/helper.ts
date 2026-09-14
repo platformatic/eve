@@ -64,7 +64,7 @@ export async function createTemporaryDirectory (t: TestContext): Promise<string>
 export async function prepareEveApplication (root: string): Promise<void> {
   await mkdir(resolve(root, 'agent'), { recursive: true })
   await mkdir(resolve(root, '.eve/nitro/workflow'), { recursive: true })
-  await writeFile(resolve(root, 'package.json'), JSON.stringify({ type: 'module', dependencies: { eve: '0.20.0' } }))
+  await writeFile(resolve(root, 'package.json'), JSON.stringify({ type: 'module', dependencies: { eve: '0.52.5' } }))
   await writeFile(
     resolve(root, 'tsconfig.json'),
     JSON.stringify({ compilerOptions: { module: 'nodenext', moduleResolution: 'nodenext', target: 'esnext' } })

@@ -16,7 +16,7 @@ test('starts Eve development mode directly', async t => {
   const capability = await createApplication(
     root,
     {},
-    { isProduction: false, serverConfig: { hostname: '127.0.0.1', port: 0 } }
+    { isProduction: false, serverConfig: { hostname: '127.0.0.1', port: '0' } }
   )
   t.after(() => capability.stop())
 
