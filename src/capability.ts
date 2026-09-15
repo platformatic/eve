@@ -2,7 +2,6 @@ import {
   buildAdditionalServerOptions,
   cleanBasePath,
   ensureTrailingSlash,
-  errors,
   getServerUrl,
   importFile,
   injectViaRequest,
@@ -20,12 +19,10 @@ import { type Server } from 'node:http'
 import { dirname, resolve as resolvePath } from 'node:path'
 import { setTimeout as sleep } from 'node:timers/promises'
 import { pathToFileURL } from 'node:url'
-import { satisfies } from 'semver'
 import type { PlatformaticEveConfig } from './config.ts'
 import { version } from './schema.ts'
 import type { DevelopmentServer, EveNitroHost, EvePrewarm, InjectOptions, OriginalEnvironment } from './types.ts'
 
-const UnsupportedVersion = errors.UnsupportedVersion as unknown as new (...arg: unknown[]) => Error
 const BaseCapability = PlatformaticBaseCapability as unknown as new (
   type: string,
   version: string,
@@ -33,8 +30,6 @@ const BaseCapability = PlatformaticBaseCapability as unknown as new (
   config: PlatformaticEveConfig,
   context?: BaseOptions<BaseContext> | object
 ) => any
-
-export const supportedVersions = '>=0.52.5 <0.56.0'
 
 export class EveCapability extends BaseCapability {
   #eve?: string
@@ -53,13 +48,6 @@ export class EveCapability extends BaseCapability {
     await super.init()
 
     this.#eve = dirname(resolvePackageViaCJS(this.root, 'eve/package.json'))
-    const evePackage = JSON.parse(await readFile(resolvePath(this.#eve, 'package.json'), 'utf-8')) as {
-      version: string
-    }
-
-    if (!this.isProduction && !satisfies(evePackage.version, supportedVersions)) {
-      throw new UnsupportedVersion('eve', evePackage.version, supportedVersions)
-    }
 
     this.#basePath = this.config.application?.basePath
       ? ensureTrailingSlash(cleanBasePath(this.config.application.basePath))

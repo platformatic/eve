@@ -16,7 +16,7 @@
     "@platformatic/runtime": "^3.69.0",
     "@platformatic/world": "^0.13.1",
     "@workflow/world": "^4.5.0",
-    "eve": "0.55.0",
+    "eve": "^0.55.0",
     "wattpm": "^3.69.0",
     "zod": "^4.6.5"
   },

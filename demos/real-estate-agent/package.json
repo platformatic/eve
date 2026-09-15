@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@platformatic/eve": "file:../..",
-    "eve": "0.55.0",
+    "eve": "^0.55.0",
     "wattpm": "^3.69.0",
     "zod": "^4.6.5"
   },

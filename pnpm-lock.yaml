@@ -46,7 +46,7 @@ importers:
         specifier: ^5.5.6
         version: 5.5.6(eslint@10.10.0)(prettier@3.9.6)
       eve:
-        specifier: 0.55.0
+        specifier: ^0.55.0
         version: 0.55.0(@opentelemetry/api@1.9.1)(ai@7.0.100(zod@4.6.5))
       neostandard:
         specifier: 0.14.0-next.1
@@ -85,7 +85,7 @@ importers:
         specifier: ^7.0.100
         version: 7.0.100(zod@4.6.5)
       eve:
-        specifier: 0.55.0
+        specifier: ^0.55.0
         version: 0.55.0(@opentelemetry/api@1.9.1)(ai@7.0.100(zod@4.6.5))
       next:
         specifier: ^16.3.5
@@ -122,7 +122,7 @@ importers:
         specifier: file:../..
         version: 'file:'
       eve:
-        specifier: 0.55.0
+        specifier: ^0.55.0
         version: 0.55.0(@opentelemetry/api@1.9.1)(ai@7.0.100(zod@4.6.5))
       wattpm:
         specifier: ^3.69.0
@@ -160,7 +160,7 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
       eve:
-        specifier: 0.55.0
+        specifier: ^0.55.0
         version: 0.55.0(@opentelemetry/api@1.9.1)(ai@7.0.100(zod@4.6.5))
       wattpm:
         specifier: ^3.69.0
@@ -201,7 +201,7 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
       eve:
-        specifier: 0.55.0
+        specifier: ^0.55.0
         version: 0.55.0(@opentelemetry/api@1.9.1)(ai@7.0.100(zod@4.6.5))
       wattpm:
         specifier: ^3.69.0
@@ -235,7 +235,7 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
       eve:
-        specifier: 0.55.0
+        specifier: ^0.55.0
         version: 0.55.0(@opentelemetry/api@1.9.1)(ai@7.0.100(zod@4.6.5))
       wattpm:
         specifier: ^3.69.0
