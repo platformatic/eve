@@ -120,7 +120,7 @@ importers:
     dependencies:
       '@platformatic/eve':
         specifier: file:../..
-        version: 'file:'
+        version: file:../..
       eve:
         specifier: 0.54.5
         version: 0.54.5(@opentelemetry/api@1.9.1)(ai@7.0.93(zod@4.5.4))
@@ -149,7 +149,7 @@ importers:
     dependencies:
       '@platformatic/eve':
         specifier: file:../..
-        version: 'file:'
+        version: file:../..
       '@platformatic/runtime':
         specifier: ^3.60.0
         version: 3.68.0
@@ -187,7 +187,7 @@ importers:
     dependencies:
       '@platformatic/eve':
         specifier: file:../..
-        version: 'file:'
+        version: file:../..
       '@platformatic/globals':
         specifier: ^3.60.0
         version: 3.68.0
@@ -221,7 +221,7 @@ importers:
     dependencies:
       '@platformatic/eve':
         specifier: file:../..
-        version: 'file:'
+        version: file:../..
       '@platformatic/globals':
         specifier: ^3.60.0
         version: 3.68.0
@@ -1185,8 +1185,8 @@ packages:
     resolution: {integrity: sha512-V9qFfqeCJWKsfriGzAeBGfB0si1CU3TJ8vnvDzDMpUQWlAap/t4PkHMz+zSSLcsHNf7Rn8avxNjKo2iIiSH1PA==}
     engines: {node: '>=22.19.0'}
 
-  '@platformatic/eve@file:':
-    resolution: {directory: '', type: directory}
+  '@platformatic/eve@file:../..':
+    resolution: {directory: ../.., type: directory}
     engines: {node: '>=24'}
 
   '@platformatic/foundation@3.68.0':
@@ -4295,7 +4295,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@platformatic/eve@file:':
+  '@platformatic/eve@file:../..':
     dependencies:
       '@platformatic/basic': 3.68.0
       '@platformatic/foundation': 3.68.0
