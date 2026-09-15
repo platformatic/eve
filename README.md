@@ -17,9 +17,7 @@ It can build an Eve application, run it in development or production mode, expos
 ## Requirements
 
 - Node.js `>=24`
-- Eve `>=0.52.5 <0.55.0`
-
-The Eve version check is enforced in development mode. Production mode runs the already-built output.
+- Eve (tested with `0.55.0`)
 
 ## Installation
 

@@ -5,8 +5,9 @@ import { test } from 'node:test'
 import { createApplication, createTemporaryDirectory, prepareEveApplication, runWithSilentOutput } from './helper.ts'
 
 // Capture what the capability logs at info level during a build.
-async function buildCapturingInfo (root: string): Promise<string[]> {
-  const capability = await createApplication(root, {}, { isProduction: true })
+async function buildCapturingInfo (root: string, config = {}, forceDefaultOutputDirectory = false): Promise<string[]> {
+  const capability = await createApplication(root, config, { isProduction: true })
+  if (forceDefaultOutputDirectory) capability.config.eve = {}
   const messages: string[] = []
   const logger = capability.logger as unknown as { info: (...args: unknown[]) => void }
   const original = logger.info.bind(logger)
@@ -60,4 +61,22 @@ test('reports the configured world when the agent sets one', async t => {
 
   ok(line, `expected a workflow world line, got: ${JSON.stringify(messages)}`)
   ok(line.includes('@workflow/world-local'), `expected the configured world to be reported, got: ${line}`)
+})
+
+test('ignores a missing compiled manifest', async t => {
+  const root = await createTemporaryDirectory(t)
+  await prepareEveApplication(root)
+
+  const messages = await buildCapturingInfo(root, { eve: { outputDirectory: '.missing-output' } })
+
+  ok(!messages.some(m => m.startsWith('Eve workflow world:')))
+})
+
+test('uses the default output directory when Eve config is present', async t => {
+  const root = await createTemporaryDirectory(t)
+  await prepareEveApplication(root)
+
+  const messages = await buildCapturingInfo(root, {}, true)
+
+  ok(messages.some(m => m.startsWith('Eve workflow world: local')))
 })
