@@ -11,19 +11,19 @@
   },
   "dependencies": {
     "@platformatic/eve": "file:../..",
-    "@platformatic/runtime": "^3.60.0",
-    "@platformatic/world": "^0.13.0",
-    "@workflow/world": "^4.2.1",
-    "eve": "0.54.5",
-    "wattpm": "^3.60.0",
-    "zod": "^4.4.3"
+    "@platformatic/runtime": "^3.69.0",
+    "@platformatic/world": "^0.13.1",
+    "@workflow/world": "^4.5.0",
+    "eve": "0.55.0",
+    "wattpm": "^3.69.0",
+    "zod": "^4.6.5"
   },
   "optionalDependencies": {
-    "@ai-sdk/anthropic": "^4.0.0",
-    "@ai-sdk/openai": "^4.0.0"
+    "@ai-sdk/anthropic": "^4.0.53",
+    "@ai-sdk/openai": "^4.0.66"
   },
   "devDependencies": {
-    "ai": "^7.0.0",
+    "ai": "^7.0.100",
     "typescript": "^5.9.3"
   },
   "engines": {

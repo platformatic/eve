@@ -11,7 +11,7 @@ minimumReleaseAgeExclude:
   - '@ai-sdk/openai@4.0.65'
   - '@ai-sdk/provider-utils@5.0.39'
   - '@ai-sdk/provider@4.0.13'
-  - eve@0.54.5
+  - eve@0.55.0
   - '@platformatic/basic@3.60.0'
   - '@platformatic/foundation@3.60.0'
   - '@platformatic/globals@3.60.0'

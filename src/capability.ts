@@ -34,7 +34,7 @@ const BaseCapability = PlatformaticBaseCapability as unknown as new (
   context?: BaseOptions<BaseContext> | object
 ) => any
 
-export const supportedVersions = '>=0.52.5 <0.55.0'
+export const supportedVersions = '>=0.52.5 <0.56.0'
 
 export class EveCapability extends BaseCapability {
   #eve?: string
