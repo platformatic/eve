@@ -14,6 +14,7 @@
     "url": "https://github.com/platformatic/eve/issues"
   },
   "private": false,
+  "packageManager": "pnpm@11.27.0",
   "files": [
     "dist",
     "LICENSE",
