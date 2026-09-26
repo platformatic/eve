@@ -255,9 +255,11 @@ export class EveCapability extends BaseCapability {
     const outputDirectory = resolvePath(this.root, config.eve?.outputDirectory ?? '.output')
     this.verifyOutputDirectory(outputDirectory)
 
-    const { prewarmBuiltAppSandboxes } = await this.#importEvePrewarm()
-    await prewarmBuiltAppSandboxes({
+    const { prewarmAppSandboxes } = await this.#importEvePrewarm()
+    const { createDiskRuntimeCompiledArtifactsSource } = await this.#importEveCompiledArtifactsSource()
+    await prewarmAppSandboxes({
       appRoot: this.root,
+      compiledArtifactsSource: createDiskRuntimeCompiledArtifactsSource(outputDirectory),
       /* c8 ignore next - hard to test */
       log: message => (this.logger as { info: (message: string) => void }).info(message)
     })
@@ -409,5 +411,9 @@ export class EveCapability extends BaseCapability {
 
   async #importEvePrewarm (): Promise<EvePrewarm> {
     return import(pathToFileURL(resolvePath(this.#eve!, 'dist', 'src', 'execution', 'sandbox', 'prewarm.js')).href)
+  }
+
+  async #importEveCompiledArtifactsSource (): Promise<Pick<EvePrewarm, 'createDiskRuntimeCompiledArtifactsSource'>> {
+    return import(pathToFileURL(resolvePath(this.#eve!, 'dist', 'src', 'runtime', 'compiled-artifacts-source.js')).href)
   }
 }
