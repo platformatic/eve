@@ -23,7 +23,12 @@ export interface EveNitroHost {
 }
 
 export interface EvePrewarm {
-  prewarmBuiltAppSandboxes: (options: { appRoot: string; log: (message: string) => void }) => Promise<void>
+  createDiskRuntimeCompiledArtifactsSource: (appRoot: string) => object
+  prewarmAppSandboxes: (options: {
+    appRoot: string
+    compiledArtifactsSource: object
+    log: (message: string) => void
+  }) => Promise<void>
 }
 
 export interface InjectedResponse {

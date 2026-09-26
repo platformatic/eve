@@ -5,6 +5,8 @@ allowBuilds:
   unrs-resolver: true
   cbor-extract: true
 minimumReleaseAgeExclude:
+  - '@ai-sdk/anthropic@4.0.65'
+  - '@ai-sdk/provider-utils@5.0.49'
   - '@ai-sdk/anthropic@4.0.52'
   - '@ai-sdk/openai@4.0.65'
   - '@ai-sdk/provider-utils@5.0.39'
