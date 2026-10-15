@@ -12,8 +12,8 @@ importers:
         specifier: link:../..
         version: link:../..
       eve:
-        specifier: ^0.66.3
-        version: 0.66.3(@opentelemetry/api@1.9.1)(ai@7.0.137(zod@4.6.5))
+        specifier: ^0.79.2
+        version: 0.79.2(@opentelemetry/api@1.9.1)(ai@7.0.137(zod@4.6.5))
       wattpm:
         specifier: ^3.72.0
         version: 3.72.0
@@ -22,7 +22,7 @@ importers:
         version: 4.6.5
     devDependencies:
       ai:
-        specifier: ^7.0.114
+        specifier: ^7.0.137
         version: 7.0.137(zod@4.6.5)
       typescript:
         specifier: ^5.9.3
@@ -731,13 +731,13 @@ packages:
     resolution: {integrity: sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==}
     engines: {node: '>=6'}
 
-  eve@0.66.3:
-    resolution: {integrity: sha512-oJkQdVrlmb1GFeaSUNY6IF71ttXjQdFnkKQP+84Qlvs/M+fUqMjGTqnwevQ+qFvc8KCswo3cbBohKOCGdgZPFg==}
+  eve@0.79.2:
+    resolution: {integrity: sha512-bwS/53jR1oPsER6yk4zhAABxn+bV+DtNy+6WjE6276fZC4aPTzJ4So9lyw87K9Vd2ZP9QdjTOZyrB4LpJCfpsA==}
     engines: {node: '>=24'}
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.0.0
-      ai: ^7.0.105
+      ai: ^7.0.137
       braintrust: ^3.0.0
       chat: ^4.41.0
       dd-trace: ^6.13.0
@@ -1229,8 +1229,8 @@ packages:
     resolution: {integrity: sha512-dkrQXeHSaoamnItlYbmzG0wFYrM0ZwDxCIg0A7aKjTyyhh9svRzCNFEzV+Vm05/yehjCzjDZ31KXfGEjYSztDQ==}
     engines: {node: '>=20.18.1'}
 
-  undici@8.9.0:
-    resolution: {integrity: sha512-aWZpUj7XoGonMClx4gdDRfgBjqeA+F473aDmROQQbM9n6PRfK/u1q/a0X4wMTgcHfT8H6fpbt98PFuDUwFg2YA==}
+  undici@8.10.2:
+    resolution: {integrity: sha512-/y4/bH9YNU5hi9NIrpOuvGXFcxrj3CMrV+/AYpowAYTpHn8gX/XPFjNy766FPoYY0miQhdW977JFWKGNhBdwyQ==}
     engines: {node: '>=22.19.0'}
 
   unenv@2.0.0-rc.24:
@@ -2132,11 +2132,11 @@ snapshots:
 
   escalade@3.2.0: {}
 
-  eve@0.66.3(@opentelemetry/api@1.9.1)(ai@7.0.137(zod@4.6.5)):
+  eve@0.79.2(@opentelemetry/api@1.9.1)(ai@7.0.137(zod@4.6.5)):
     dependencies:
       ai: 7.0.137(zod@4.6.5)
       nitro: 3.0.260903-beta
-      undici: 8.9.0
+      undici: 8.10.2
     optionalDependencies:
       '@opentelemetry/api': 1.9.1
 
@@ -2640,7 +2640,7 @@ snapshots:
 
   undici@7.30.0: {}
 
-  undici@8.9.0: {}
+  undici@8.10.2: {}
 
   unenv@2.0.0-rc.24:
     dependencies:

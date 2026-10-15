@@ -7,7 +7,7 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
-  - eve@0.66.3 || 0.79.2
+  - eve@0.79.2
   - '@ai-sdk/gateway@4.0.92'
   - 'ai@7.0.114'
   - '@platformatic/world@0.14.0'

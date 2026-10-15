@@ -14,7 +14,7 @@
     "@platformatic/runtime": "^3.72.0",
     "@platformatic/world": "^0.14.0",
     "@workflow/world": "^4.5.0",
-    "eve": "^0.66.3",
+    "eve": "^0.79.2",
     "wattpm": "^3.72.0",
     "zod": "^4.6.5"
   },
@@ -23,7 +23,7 @@
     "@ai-sdk/openai": "^4.0.75"
   },
   "devDependencies": {
-    "ai": "^7.0.114",
+    "ai": "^7.0.137",
     "typescript": "^5.9.3"
   },
   "engines": {
