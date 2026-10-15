@@ -14,7 +14,7 @@ Watt / @platformatic/next :3042
 
 The second rewrite is specific to self-hosting. `withEve()` proxies the Eve session API, but Platformatic World delivers queue messages to `/.well-known/workflow/v1/flow`.
 
-The Eve world is exposed as the local package `@platformatic/next-eve-world`. Eve statically imports custom worlds from its generated compile directory, so a named package is required instead of a root-relative module path.
+The agent uses `@platformatic/world` directly (`experimental.workflow.world`). Eve statically imports the world from its generated compile directory, so it must be a named package, not a root-relative module path.
 
 In a direct `next start`, `withEve()` starts the production Eve child while evaluating the Next config. `@platformatic/next` starts from its build manifest and does not evaluate that config side effect again. The container entrypoint therefore uses `scripts/start-container.mjs` to start the same Eve build on loopback, wait for its health route, and then start Watt. Starting Eve outside the Platformatic application worker is important because the worker intercepts application server sockets. Both processes remain in the same project and pod.
 

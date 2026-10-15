@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@platformatic/next": "^3.72.0",
-    "@platformatic/next-eve-world": "file:./world-adapter",
     "@platformatic/runtime": "^3.72.0",
     "@platformatic/world": "^0.14.0",
     "@workflow/world": "^4.5.0",

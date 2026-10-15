@@ -11,9 +11,6 @@ importers:
       '@platformatic/next':
         specifier: ^3.72.0
         version: 3.72.0(@types/node@26.6.5)
-      '@platformatic/next-eve-world':
-        specifier: file:./world-adapter
-        version: file:world-adapter(@workflow/world@4.5.1)
       '@platformatic/runtime':
         specifier: ^3.72.0
         version: 3.72.0
@@ -760,9 +757,6 @@ packages:
   '@platformatic/metrics@3.72.0':
     resolution: {integrity: sha512-GOC52O1PK6HXBP8D5jF1138xOh9bjRWoAqWoG8PKgbG9SFkW1AJctat/Ykok0injNn76r2677+gWP1Z2tifaTw==}
     engines: {node: '>=22.19.0'}
-
-  '@platformatic/next-eve-world@file:world-adapter':
-    resolution: {directory: world-adapter, type: directory}
 
   '@platformatic/next@3.72.0':
     resolution: {integrity: sha512-2Htfi7unOZZ4+zsisTsuwZNzyy/mtB/3cEvCSSU+6IVVcxz5iAXgBxgYP7DcRGlOcebzk3NpeQbbTsd8vakUHA==}
@@ -2638,12 +2632,6 @@ snapshots:
       '@platformatic/http-metrics': 0.3.0
       '@platformatic/prom-client': 1.0.0
       '@platformatic/promotel': 0.2.2
-
-  '@platformatic/next-eve-world@file:world-adapter(@workflow/world@4.5.1)':
-    dependencies:
-      '@platformatic/world': 0.14.0(@workflow/world@4.5.1)
-    transitivePeerDependencies:
-      - '@workflow/world'
 
   '@platformatic/next@3.72.0(@types/node@26.6.5)':
     dependencies:

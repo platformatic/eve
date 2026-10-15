@@ -49,7 +49,7 @@ export default defineAgent({
   modelContextWindowTokens: 200_000,
   experimental: {
     workflow: {
-      world: '@platformatic/next-eve-world'
+      world: '@platformatic/world'
     }
   }
 })
