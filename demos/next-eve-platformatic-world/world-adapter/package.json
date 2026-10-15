@@ -5,6 +5,6 @@
   "type": "module",
   "exports": "./index.mjs",
   "dependencies": {
-    "@platformatic/world": "^0.13.1"
+    "@platformatic/world": "^0.14.0"
   }
 }

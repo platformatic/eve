@@ -10,9 +10,9 @@
     "start": "wattpm start"
   },
   "dependencies": {
-    "@platformatic/eve": "file:../..",
+    "@platformatic/eve": "link:../..",
     "eve": "^0.66.3",
-    "wattpm": "^3.69.0",
+    "wattpm": "^3.72.0",
     "zod": "^4.6.5"
   },
   "optionalDependencies": {

@@ -43,7 +43,7 @@ The whole capability is one class: **`EveCapability`** in `src/capability.ts`, e
 `demos/*` are runnable example eve agents (the official Vercel Weather and Real Estate demos) wired
 to boot under Watt through this capability. Each is a Watt app (`watt.json` with
 `module: @platformatic/eve`); they are workspace members (`packages: demos/*`) but link the
-capability via `@platformatic/eve: "file:../.."`, **not** `workspace:*`. Install and build once at
+capability via `@platformatic/eve: "link:../.."`, **not** `workspace:*` (nor `file:../..`, which breaks the pnpm 12 lockfile). Install and build once at
 the repo root (`pnpm install && npm run build`), then run a demo with `pnpm dev` (`wattpm dev`) from
 its directory.
 

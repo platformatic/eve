@@ -11,13 +11,13 @@
     "verify:skew": "node --env-file-if-exists=.env scripts/verify-skew-protection.mjs"
   },
   "dependencies": {
-    "@platformatic/eve": "file:../..",
-    "@platformatic/globals": "^3.69.0",
-    "@platformatic/runtime": "^3.69.0",
-    "@platformatic/world": "^0.13.1",
+    "@platformatic/eve": "link:../..",
+    "@platformatic/globals": "^3.72.0",
+    "@platformatic/runtime": "^3.72.0",
+    "@platformatic/world": "^0.14.0",
     "@workflow/world": "^4.5.0",
     "eve": "^0.66.3",
-    "wattpm": "^3.69.0",
+    "wattpm": "^3.72.0",
     "zod": "^4.6.5"
   },
   "devDependencies": {

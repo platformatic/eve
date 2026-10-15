@@ -39,7 +39,7 @@ schedule and the "viewings today" query have something to show immediately.
 > into `<demo>/.eve/`, which fails (`cp` can't copy a directory into itself). The
 > marker pins eve's source root to this demo. Because pnpm also treats this nested
 > file as a root when you run `pnpm` from here, the demo links the capability via
-> `file:../..` (not `workspace:*`), which resolves in that rooting. Don't delete it.
+> `link:../..` (not `workspace:*`), which resolves in that rooting. Don't delete it.
 
 ## Run it
 

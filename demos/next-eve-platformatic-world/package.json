@@ -11,17 +11,17 @@
     "verify:deployment": "node --env-file-if-exists=.env scripts/verify-deployment.mjs"
   },
   "dependencies": {
-    "@platformatic/next": "^3.69.0",
+    "@platformatic/next": "^3.72.0",
     "@platformatic/next-eve-world": "file:./world-adapter",
-    "@platformatic/runtime": "^3.69.0",
-    "@platformatic/world": "^0.13.1",
+    "@platformatic/runtime": "^3.72.0",
+    "@platformatic/world": "^0.14.0",
     "@workflow/world": "^4.5.0",
     "ai": "^7.0.114",
     "eve": "^0.66.3",
     "next": "^16.3.6",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "wattpm": "^3.69.0",
+    "wattpm": "^3.72.0",
     "zod": "^4.6.5"
   },
   "devDependencies": {

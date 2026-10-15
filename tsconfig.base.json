@@ -2,7 +2,8 @@
   "extends": "@platformatic/tsconfig/tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "outDir": "dist",    
+    "rootDir": "src",
+    "outDir": "dist",
   },
   "include": ["src/*.ts", "src/**/*.ts"]
 }
