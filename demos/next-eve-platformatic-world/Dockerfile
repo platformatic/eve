@@ -5,7 +5,7 @@ ENV PORT="3042"
 ENV EVE_NEXT_PRODUCTION_PORT="4274"
 ENV PLT_ICC_URL="http://icc.platformatic.svc.cluster.local"
 ENV PLT_WORKFLOW="true"
-ENV WORKFLOW_TARGET_WORLD="@platformatic/next-eve-world"
+ENV WORKFLOW_TARGET_WORLD="@platformatic/world"
 ENV PLT_WORLD_SERVICE_URL="http://workflow.platformatic.svc.cluster.local"
 ENV PLT_WORLD_APP_ID="next-eve-platformatic-world"
 

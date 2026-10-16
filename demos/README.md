@@ -22,15 +22,16 @@ top of eve's durable-session runtime.
 
 The demos are registered under `packages:` in the repo-root `pnpm-workspace.yaml`,
 so a single `pnpm install` at the root installs them too. Each links the
-capability from this repository via `file:../..` — not a published version.
+capability from this repository via `link:../..` — not a published version.
 
 ### How the wiring works (two things worth knowing)
 
-- **`file:../..` link.** Each demo depends on `@platformatic/eve` as
-  `"file:../.."` rather than `workspace:*`. Watt loads it as the app's `module`.
+- **`link:../..` link.** Each demo depends on `@platformatic/eve` as
+  `"link:../.."` rather than `workspace:*`. Watt loads it as the app's `module`.
   The capability ships compiled JS, so build the repo first (`npm run build` in
-  `/`) or the demo links an empty `dist/`. Using `file:` (not `workspace:*`) is
-  deliberate — see the marker below.
+  `/`) or the demo links an empty `dist/`. Using `link:` (not `workspace:*`) is
+  deliberate — see the marker below. Don't use `file:../..` either: pnpm 12
+  writes it to the root lockfile with an empty path and then fails to parse it.
 - **The per-demo `pnpm-workspace.yaml` marker.** In `pnpm dev`, eve stages a
   snapshot of its "source root" — the nearest ancestor holding a `.git` or
   `pnpm-workspace.yaml`. Since the demos live inside this repo, without the marker

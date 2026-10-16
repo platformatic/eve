@@ -10,9 +10,9 @@
     "start": "wattpm start"
   },
   "dependencies": {
-    "@platformatic/eve": "file:../..",
-    "eve": "^0.66.3",
-    "wattpm": "^3.69.0",
+    "@platformatic/eve": "link:../..",
+    "eve": "^0.79.2",
+    "wattpm": "^3.72.0",
     "zod": "^4.6.5"
   },
   "optionalDependencies": {
@@ -20,7 +20,7 @@
     "@ai-sdk/openai": "^4.0.75"
   },
   "devDependencies": {
-    "ai": "^7.0.114",
+    "ai": "^7.0.137",
     "typescript": "^5.9.3"
   },
   "engines": {

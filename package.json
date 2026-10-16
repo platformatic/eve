@@ -14,7 +14,7 @@
     "url": "https://github.com/platformatic/eve/issues"
   },
   "private": false,
-  "packageManager": "pnpm@11.27.0",
+  "packageManager": "pnpm@12.11.2",
   "files": [
     "dist",
     "LICENSE",
@@ -36,26 +36,26 @@
     "postpublish": "git push origin && git push origin -f --tags"
   },
   "dependencies": {
-    "@platformatic/basic": "^3.69.0",
-    "@platformatic/foundation": "^3.69.0",
+    "@platformatic/basic": "^3.72.0",
+    "@platformatic/foundation": "^3.72.0",
     "ajv": "^8.20.0",
-    "light-my-request": "^6.6.0",
+    "light-my-request": "^6.8.0",
     "semver": "^7.8.5"
   },
   "devDependencies": {
     "@platformatic/tsconfig": "^0.2.0",
-    "@types/node": "^26.5.1",
+    "@types/node": "^26.6.5",
     "@types/semver": "^7.8.0",
     "c8": "^12.0.0",
-    "cleaner-spec-reporter": "^1.0.3",
-    "eslint": "^10.10.0",
-    "eslint-plugin-prettier": "^5.5.6",
-    "eve": "^0.66.3",
-    "neostandard": "0.14.0-next.1",
-    "prettier": "^3.9.9",
+    "cleaner-spec-reporter": "^2.0.1",
+    "eslint": "^10.12.0",
+    "eslint-plugin-prettier": "^5.5.7",
+    "eve": "^0.79.2",
+    "neostandard": "0.14.1",
+    "prettier": "^3.9.10",
     "prettier-plugin-space-before-function-paren": "^0.1.0",
-    "typescript": "^5.9.3",
-    "undici": "^8.11.2"
+    "typescript": "~6.0.3",
+    "undici": "^8.12.2"
   },
   "engines": {
     "node": ">=24"

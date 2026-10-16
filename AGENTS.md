@@ -12,7 +12,8 @@
   its "source root" (nearest ancestor with `.git` or `pnpm-workspace.yaml`); without it eve roots at
   the repo and copies the whole tree into `<demo>/.eve/`, failing with `cp` EINVAL (dest inside src).
   Consequence: pnpm also treats that nested file as a root when you run `pnpm` from a demo dir, so the
-  demos MUST link the capability via `@platformatic/eve: "file:../.."` (not `workspace:*`, which is
-  unresolvable in that rooting). The nested file also carries `allowBuilds` (protobufjs,
+  demos MUST link the capability via `@platformatic/eve: "link:../.."` (not `workspace:*`, which is
+  unresolvable in that rooting, and not `file:../..`, which pnpm 12 writes to the root lockfile as an
+  empty `file:` path and then fails with "Empty path after `file:` scheme"). The nested file also carries `allowBuilds` (protobufjs,
   unrs-resolver) so a demo-dir `pnpm install` / `pnpm dev` don't fail on ignored build scripts. Do
-  not delete it. Build the repo (`npm run build`) so the `file:` link resolves a current `dist/`.
+  not delete it. Build the repo (`npm run build`) so the `link:` resolves a current `dist/`.
