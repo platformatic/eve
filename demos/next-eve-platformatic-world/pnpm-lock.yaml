@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@platformatic/next':
         specifier: ^3.72.0
-        version: 3.75.0(@types/node@26.6.5)
+        version: 3.75.0(@types/node@26.6.6)
       '@platformatic/runtime':
         specifier: ^3.72.0
         version: 3.75.0
@@ -28,7 +28,7 @@ importers:
         version: 0.79.2(@opentelemetry/api@1.10.0)(ai@7.0.153(zod@4.6.7))
       next:
         specifier: ^16.3.6
-        version: 16.4.3(@opentelemetry/api@1.10.0)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+        version: 16.4.3(@opentelemetry/api@1.10.0)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react:
         specifier: ^19.3.0
         version: 19.3.1
@@ -44,7 +44,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: ^26.5.1
-        version: 26.6.5
+        version: 26.6.6
       '@types/react':
         specifier: ^19.3.0
         version: 19.3.0
@@ -937,8 +937,8 @@ packages:
   '@types/luxon@3.7.6':
     resolution: {integrity: sha512-6KSjliQAXK8ZLgFQO4B7iE4Rpf/B3rItzCFuXezBY/XIAGxOdLd7vRNK9/StRPwiS/yJsVbB7HKpW46B8tcEuQ==}
 
-  '@types/node@26.6.5':
-    resolution: {integrity: sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg==}
+  '@types/node@26.6.6':
+    resolution: {integrity: sha512-MzQj+8Kx3XI40OmUAE6Qoh58ZMNstNNMwn2nfd3qWsfe7nDNSqJNzes4njhz6AHwrSHOffSLwXU6yb474Q4aog==}
 
   '@types/react-dom@19.3.0':
     resolution: {integrity: sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q==}
@@ -2673,11 +2673,11 @@ snapshots:
     dependencies:
       '@platformatic/prom-client': 1.0.0
 
-  '@platformatic/image-optimizer@0.2.2(@types/node@26.6.5)':
+  '@platformatic/image-optimizer@0.2.2(@types/node@26.6.6)':
     dependencies:
       http-errors-enhanced: 4.0.2
       is-animated: 2.0.2
-      sharp: 0.35.5(@types/node@26.6.5)
+      sharp: 0.35.5(@types/node@26.6.6)
       undici: 7.30.1
     optionalDependencies:
       '@platformatic/job-queue': 0.4.1
@@ -2710,7 +2710,7 @@ snapshots:
       '@platformatic/prom-client': 1.0.0
       '@platformatic/promotel': 0.2.2
 
-  '@platformatic/next@3.75.0(@types/node@26.6.5)':
+  '@platformatic/next@3.75.0(@types/node@26.6.6)':
     dependencies:
       '@babel/generator': 7.29.8
       '@babel/parser': 7.29.11
@@ -2719,7 +2719,7 @@ snapshots:
       '@platformatic/basic': 3.75.0
       '@platformatic/foundation': 3.75.0
       '@platformatic/globals': 3.75.0
-      '@platformatic/image-optimizer': 0.2.2(@types/node@26.6.5)
+      '@platformatic/image-optimizer': 0.2.2(@types/node@26.6.6)
       amaro: 1.2.2
       iovalkey: 0.4.0
       light-my-request: 6.8.0
@@ -2895,7 +2895,7 @@ snapshots:
 
   '@types/luxon@3.7.6': {}
 
-  '@types/node@26.6.5':
+  '@types/node@26.6.6':
     dependencies:
       undici-types: 8.9.0
 
@@ -3363,7 +3363,7 @@ snapshots:
 
   negotiator@0.6.3: {}
 
-  next@16.4.3(@opentelemetry/api@1.10.0)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
+  next@16.4.3(@opentelemetry/api@1.10.0)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       '@next/env': 16.4.3
       '@swc/helpers': 0.5.23
@@ -3383,7 +3383,7 @@ snapshots:
       '@next/swc-win32-arm64-msvc': 16.4.3
       '@next/swc-win32-x64-msvc': 16.4.3
       '@opentelemetry/api': 1.10.0
-      sharp: 0.35.5(@types/node@26.6.5)
+      sharp: 0.35.5(@types/node@26.6.6)
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/node'
@@ -3538,7 +3538,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.2
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
       long: 5.3.2
 
   protobufjs@8.8.1:
@@ -3639,7 +3639,7 @@ snapshots:
 
   set-cookie-parser@3.2.1: {}
 
-  sharp@0.35.5(@types/node@26.6.5):
+  sharp@0.35.5(@types/node@26.6.6):
     dependencies:
       '@img/colour': 1.1.0
       detect-libc: 2.1.2
@@ -3670,7 +3670,7 @@ snapshots:
       '@img/sharp-win32-arm64': 0.35.5
       '@img/sharp-win32-ia32': 0.35.5
       '@img/sharp-win32-x64': 0.35.5
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   shebang-command@2.0.0:
     dependencies:
