@@ -19,7 +19,7 @@ importers:
         version: 3.75.0
       '@platformatic/world':
         specifier: ^0.14.0
-        version: 0.14.3(@workflow/world@4.5.1)
+        version: 0.14.4(@workflow/world@4.5.1)
       '@workflow/world':
         specifier: ^4.5.0
         version: 4.5.1
@@ -456,8 +456,8 @@ packages:
   '@platformatic/undici-cache-memory@0.9.0':
     resolution: {integrity: sha512-ub1oMcewDpZD5PLFyfXeZYVe3aQBZXVwZ3wUssjvErdavBex+aptvps9UGDDD0k6L1KNlCCJZE74WrxRNGiewg==}
 
-  '@platformatic/world@0.14.3':
-    resolution: {integrity: sha512-NouuSP+DkLiW4NuxmomyIjKtQHkCSybiy7ZfE/ltXa2qdBs9YXUPKI7xVderoIWjxkL26srbNqms7zCDkmkulw==}
+  '@platformatic/world@0.14.4':
+    resolution: {integrity: sha512-YyY9XYHQFzqMz3cpY0zR83VA0L1bUPymQJgHfK6LIf1iOs7fAsD8A7p4XuZV3go6vPbLKtnwimlTFw45BACUEg==}
     engines: {node: '>=22.19.0'}
     peerDependencies:
       '@workflow/world': '>=4.5.0 <6'
@@ -677,8 +677,8 @@ packages:
     resolution: {integrity: sha512-hlSxxI9XO2yQfe9g6msd3g4xCfDqK5T5P0fRMLuaLHhxn4ViPrm+a+MUfhrvH2W962RGxcBwEGzLQyjbDG1gng==}
     hasBin: true
 
-  cbor-x@1.6.6:
-    resolution: {integrity: sha512-8QiD9PGOxyQHo7s2pzwTBH6lTjqekxPdl9Aq6fXvZgCuCJHOht1puDEA/fTr6mciB76c+M+Gi0qT2i1a4pm4Wg==}
+  cbor-x@1.6.8:
+    resolution: {integrity: sha512-wUtIwq2J+Y2bEvDpdJj0z9QIX+PGMzms489HFvNwr0V8Zq3ejqOdZKTaTe6Zru8WU0IwuRDtpys3nUF4LDRKAQ==}
 
   change-case-all@2.1.0:
     resolution: {integrity: sha512-v6b0WWWkZUMHVuYk82l+WROgkUm4qEN2w5hKRNWtEOYwWqUGoi8C6xH0l1RLF1EoWqDFK6MFclmN3od6ws3/uw==}
@@ -2044,11 +2044,11 @@ snapshots:
 
   '@platformatic/undici-cache-memory@0.9.0': {}
 
-  '@platformatic/world@0.14.3(@workflow/world@4.5.1)':
+  '@platformatic/world@0.14.4(@workflow/world@4.5.1)':
     dependencies:
       '@platformatic/globals': 3.75.0
       '@workflow/world': 4.5.1
-      cbor-x: 1.6.6
+      cbor-x: 1.6.8
       undici: 8.12.3
 
   '@protobufjs/aspromise@1.1.2': {}
@@ -2207,7 +2207,7 @@ snapshots:
       '@cbor-extract/cbor-extract-win32-x64': 2.2.2
     optional: true
 
-  cbor-x@1.6.6:
+  cbor-x@1.6.8:
     optionalDependencies:
       cbor-extract: 2.2.2
 
