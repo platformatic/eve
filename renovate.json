@@ -5,6 +5,8 @@
   ],
   "rangeStrategy": "update-lockfile",
   "prHourlyLimit": 1,
+  "minimumReleaseAge": "1 day",
+  "internalChecksFilter": "strict",
   "packageRules": [
     {
       "matchUpdateTypes": [
@@ -14,6 +16,13 @@
         "digest"
       ],
       "automerge": true
+    },
+    {
+      "groupName": "Platformatic packages",
+      "matchPackageNames": [
+        "@platformatic/*"
+      ],
+      "minimumReleaseAge": null
     }
   ],
   "lockFileMaintenance": {
